@@ -4,6 +4,10 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source: '/index.php',
+        destination: '/',
+      },
+      {
         source: '/login.php',
         destination: '/login',
       },
