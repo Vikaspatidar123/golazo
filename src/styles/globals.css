@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,700&display=swap');
+
+:root {
+  /* Brand colors */
+  --brand-red: #df0024;
+  --brand-red-hover: #b7021f;
+  --brand-navy: #250e60;
+  --brand-navy-dark: #190945;
+  --brand-navy-light: #351688;
+  --brand-green: #38571a;
+  --brand-gold: #f59e0b;
+
+  /* Theme backgrounds */
+  --bg-main: #0c0d12;
+  --bg-surface: #14161f;
+  --bg-card: #1a1d29;
+  --bg-card-hover: #222636;
+  --border-card: #272c3d;
+  --border-subtle: #1e2230;
+
+  /* Inputs */
+  --input-bg: #12141c;
+  --input-border: #2a3042;
+  --input-border-focus: #df0024;
+  --input-text: #ffffff;
+  --input-placeholder: #6b7280;
+
+  /* Typography */
+  --text-primary: #ffffff;
+  --text-secondary: #c7cbd4;
+  --text-muted: #8b92a2;
+  --text-danger: #f87171;
+  --text-success: #4ade80;
+
+  /* Layout dimensions in rem */
+  --header-height: 4.5rem;
+  --submenu-height: 2.875rem;
+  --max-width: 72.5rem; /* 1160px = 72.5rem matching original Golazo width */
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+body.login-page {
+  background-color: #444444 !important;
+  height: 100%;
+}
+
+html {
+  font-size: 100%; /* 1rem = 16px */
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 93.75%; /* 1rem = 15px for small mobile */
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b3144;
+  border-radius: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3c445c;
+}

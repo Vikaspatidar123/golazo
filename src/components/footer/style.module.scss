@@ -1,0 +1,101 @@
+.footer {
+  width: 100%;
+  background-color: var(--brand-navy-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: auto;
+  color: var(--text-secondary);
+}
+
+.footerInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 1rem 1.5rem;
+}
+
+.topGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.footerLogo {
+  height: 2.5rem;
+  width: auto;
+  object-fit: contain;
+}
+
+.brandDesc {
+  font-size: 0.875rem;
+  line-height: 1.4rem;
+  color: var(--text-muted);
+  max-width: 25rem;
+}
+
+.ageBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: var(--brand-red);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.75rem;
+}
+
+.colTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.linkItem a {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  transition: color 0.15s;
+
+  &:hover {
+    color: var(--brand-red);
+  }
+}
+
+.bottomBar {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+}

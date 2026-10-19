@@ -1,0 +1,75 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.primary {
+  background-color: var(--brand-red);
+  color: #ffffff;
+  border-color: var(--brand-red);
+  box-shadow: 0 0.25rem 0.75rem rgba(223, 0, 36, 0.25);
+
+  &:hover:not(:disabled) {
+    background-color: var(--brand-red-hover);
+    border-color: var(--brand-red-hover);
+    box-shadow: 0 0.375rem 1rem rgba(223, 0, 36, 0.35);
+  }
+}
+
+.secondary {
+  background-color: #262a38;
+  color: #ffffff;
+  border-color: #383e52;
+
+  &:hover:not(:disabled) {
+    background-color: #32384c;
+    border-color: #48506a;
+  }
+}
+
+.outline {
+  background-color: transparent;
+  color: var(--brand-red);
+  border-color: var(--brand-red);
+
+  &:hover:not(:disabled) {
+    background-color: rgba(223, 0, 36, 0.1);
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.spinner {
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,229 @@
+.headerContainer {
+  width: 100%;
+  background-color: #07080b;
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.topNav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logoImage {
+  height: 2.25rem;
+  width: auto;
+  max-width: 12rem;
+  object-fit: contain;
+
+  @media (max-width: 480px) {
+    height: 1.875rem;
+    max-width: 10rem;
+  }
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.quickLoginForm {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quickInput {
+  height: 2.375rem;
+  width: 9.5rem;
+  padding: 0.375rem 0.625rem;
+  background-color: #141722;
+  border: 1px solid #2d3345;
+  border-radius: 0.25rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.15s;
+
+  &::placeholder {
+    color: #6b7280;
+  }
+
+  &:focus {
+    border-color: var(--brand-red);
+  }
+}
+
+.quickRegisterBtn {
+  background-color: var(--brand-red);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: var(--brand-red-hover);
+  }
+}
+
+.quickLoginBtn {
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #3e465d;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #1a1e2d;
+    border-color: #566080;
+  }
+}
+
+/* Submenu Bar */
+.subMenu {
+  background-color: var(--brand-navy);
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.subMenuInner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: max-content;
+}
+
+.sportsList {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sportItem {
+  display: flex;
+  align-items: center;
+}
+
+.sportLink {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.75rem 0.875rem;
+  color: #e2e8f0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s;
+  white-space: nowrap;
+
+  &:hover, &.active {
+    background-color: var(--brand-red);
+    color: #ffffff;
+  }
+}
+
+.subActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.subActionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.25rem;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  &.live {
+    background-color: rgba(223, 0, 36, 0.3);
+    border: 1px solid rgba(223, 0, 36, 0.6);
+    color: #ff8597;
+
+    &:hover {
+      background-color: var(--brand-red);
+      color: #ffffff;
+    }
+  }
+}
+
+/* Mobile Menu button */
+.mobileMenuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  padding: 0.375rem;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.mobileDrawer {
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    background-color: #10121a;
+    padding: 1rem;
+    border-top: 1px solid #1f2433;
+    gap: 0.75rem;
+  }
+}
