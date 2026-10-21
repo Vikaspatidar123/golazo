@@ -48,7 +48,7 @@ export default function LanguageModal({ isOpen, onClose }) {
               }}
             >
               <img
-                src="https://cdn.golazo.club/images/flags/es.png"
+                src="/assets/images/flags/es.png"
                 alt="Español"
                 width="24"
                 height="16"
@@ -76,7 +76,7 @@ export default function LanguageModal({ isOpen, onClose }) {
               }}
             >
               <img
-                src="https://cdn.golazo.club/images/flags/us.png"
+                src="/assets/images/flags/us.png"
                 alt="English"
                 width="24"
                 height="16"

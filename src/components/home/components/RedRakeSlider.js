@@ -3,22 +3,22 @@ import Link from "next/link";
 import styles from "../style.module.scss";
 
 const redRakeGames = [
-  { id: 1, name: "Joker Fiesta", image: "https://cdn.golazo.club/games_images/rrg/vivo-jokerfiesta.jpg" },
-  { id: 2, name: "Dragon Fortunes", image: "https://cdn.golazo.club/games_images/rrg/rrg-slot-dragonfortunes.jpg" },
-  { id: 3, name: "Medusa Hunt", image: "https://cdn.golazo.club/games_images/rrg/vivo-medusahunt.jpg" },
-  { id: 4, name: "Egypt", image: "https://cdn.golazo.club/games_images/rrg/vivo-egypt.jpg" },
-  { id: 5, name: "Super Coins", image: "https://cdn.golazo.club/games_images/rrg/vivo-supercoins.jpg" },
-  { id: 6, name: "Super 5 Stars", image: "https://cdn.golazo.club/games_images/rrg/rrg-slot-super5stars.jpg" },
-  { id: 7, name: "Tumbling Diamonds", image: "https://cdn.golazo.club/games_images/rrg/rrg-slot-tumbling-diamonds.jpg" },
-  { id: 8, name: "Triple Fu Lu Shou", image: "https://cdn.golazo.club/games_images/rrg/vivo-triplefulushou.jpg" },
-  { id: 9, name: "Big Size Fishin", image: "https://cdn.golazo.club/games_images/rrg/vivo-bigsizefishin.jpg" },
-  { id: 10, name: "Guardian of Ra", image: "https://cdn.golazo.club/games_images/rrg/rrg-vivo-guardianofra.jpg" },
-  { id: 11, name: "Triple Jewel of Egypt", image: "https://cdn.golazo.club/games_images/rrg/vivo-triplejewelofegypt.jpg" },
-  { id: 12, name: "Super 70 Stars", image: "https://cdn.golazo.club/games_images/rrg/vivo-super70stars.jpg" },
-  { id: 13, name: "Grand Bison", image: "https://cdn.golazo.club/games_images/rrg/vivo-grandbison.jpg" },
-  { id: 14, name: "Viva Fiesta", image: "https://cdn.golazo.club/games_images/rrg/vivo-vivafiesta.jpg" },
-  { id: 15, name: "Cleopatra", image: "https://cdn.golazo.club/games_images/rrg/rrg-slot-cleopatra.jpg" },
-  { id: 16, name: "Dragons 3 Rake It In", image: "https://cdn.golazo.club/games_images/rrg/vivo-dragons3rakeitin.jpg" },
+  { id: 1, name: "Joker Fiesta", image: "/assets/images/rrg/vivo-jokerfiesta.jpg" },
+  { id: 2, name: "Dragon Fortunes", image: "/assets/images/rrg/rrg-slot-dragonfortunes.jpg" },
+  { id: 3, name: "Medusa Hunt", image: "/assets/images/rrg/vivo-medusahunt.jpg" },
+  { id: 4, name: "Egypt", image: "/assets/images/rrg/vivo-egypt.jpg" },
+  { id: 5, name: "Super Coins", image: "/assets/images/rrg/vivo-supercoins.jpg" },
+  { id: 6, name: "Super 5 Stars", image: "/assets/images/rrg/rrg-slot-super5stars.jpg" },
+  { id: 7, name: "Tumbling Diamonds", image: "/assets/images/rrg/rrg-slot-tumbling-diamonds.jpg" },
+  { id: 8, name: "Triple Fu Lu Shou", image: "/assets/images/rrg/vivo-triplefulushou.jpg" },
+  { id: 9, name: "Big Size Fishin", image: "/assets/images/rrg/vivo-bigsizefishin.jpg" },
+  { id: 10, name: "Guardian of Ra", image: "/assets/images/rrg/rrg-vivo-guardianofra.jpg" },
+  { id: 11, name: "Triple Jewel of Egypt", image: "/assets/images/rrg/vivo-triplejewelofegypt.jpg" },
+  { id: 12, name: "Super 70 Stars", image: "/assets/images/rrg/vivo-super70stars.jpg" },
+  { id: 13, name: "Grand Bison", image: "/assets/images/rrg/vivo-grandbison.jpg" },
+  { id: 14, name: "Viva Fiesta", image: "/assets/images/rrg/vivo-vivafiesta.jpg" },
+  { id: 15, name: "Cleopatra", image: "/assets/images/rrg/rrg-slot-cleopatra.jpg" },
+  { id: 16, name: "Dragons 3 Rake It In", image: "/assets/images/rrg/vivo-dragons3rakeitin.jpg" },
 ];
 
 export default function RedRakeSlider() {

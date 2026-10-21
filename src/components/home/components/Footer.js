@@ -124,13 +124,13 @@ export default function Footer({ onOpenModal }) {
       {/* Regulatory Copyright Note */}
       <div className={styles.footerCopyright}>
         <img
-          src="https://cdn.golazo.club/images/18.svg"
+          src="/assets/images/footer/18.svg"
           alt="18+"
           width="30"
           height="30"
         />
         <img
-          src="https://cdn.golazo.club/images/gt-logo.png"
+          src="/assets/images/footer/gt-logo.png"
           alt="GT Logo"
           width="50"
           height="22"
