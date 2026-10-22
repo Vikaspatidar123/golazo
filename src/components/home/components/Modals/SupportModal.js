@@ -22,55 +22,58 @@ export default function SupportModal({ isOpen, mode = "support", onClose }) {
   return (
     <div className={styles.modalBackdrop} onClick={onClose}>
       <div
-        className={`${styles.modalDialog} ${styles.modalLg}`}
+        className={`${styles.modalDialog} ${styles.modalMd}`}
         onClick={(e) => e.stopPropagation()}
       >
         <div className={styles.modalHeader}>
           <h6 className={styles.modalTitle}>
             {mode === "notifications"
-              ? "Notificaciones"
-              : "Contactar a Mesa de ayuda"}
+              ? "Notifications"
+              : "Help Desk Support"}
           </h6>
           <button
             type="button"
             className={styles.modalCloseBtn}
             onClick={onClose}
+            aria-label="Close"
           >
-            &times;
+            &#x2715;
           </button>
         </div>
 
         {mode === "notifications" ? (
-          <div className={styles.modalBody} style={{ textAlign: "center", padding: "2rem" }}>
+          <div className={styles.modalBody} style={{ textAlign: "center", padding: "2.5rem 1.5rem" }}>
             <i
               className="far fa-bell"
-              style={{ fontSize: "2.5rem", color: "#f05e15", marginBottom: "1rem" }}
+              style={{ fontSize: "2.5rem", color: "#ffffff", opacity: 0.85, marginBottom: "1rem" }}
             />
-            <p style={{ color: "#c7cbd4" }}>No hay nuevas notificaciones en este momento.</p>
+            <p style={{ color: "#e2e8f0", margin: 0, fontSize: "0.9375rem" }}>
+              No new notifications at this time.
+            </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
-            <div className={styles.modalBody}>
+            <div className={styles.modalBody} style={{ padding: "1.75rem 1.75rem 1rem" }}>
               <div
                 style={{
-                  background: "rgba(220, 53, 69, 0.2)",
-                  border: "1px solid rgba(220, 53, 69, 0.4)",
+                  background: "rgba(0, 0, 0, 0.25)",
+                  border: "1px solid rgba(255, 255, 255, 0.12)",
                   padding: "0.75rem 1rem",
                   borderRadius: "0.25rem",
                   marginBottom: "1.25rem",
                   fontSize: "0.8125rem",
-                  color: "#ffc9c9",
+                  color: "#e2e8f0",
                 }}
               >
-                Se encuentra fuera del horario de atencion. Responderemos su mensaje a la brevedad.
+                Our support team is available 24/7. We will respond to your ticket promptly.
               </div>
 
               <div className={styles.modalFormGroup}>
-                <label htmlFor="ticketSubject">Asunto</label>
+                <label htmlFor="ticketSubject">Subject</label>
                 <input
                   id="ticketSubject"
                   type="text"
-                  placeholder="Ingrese el asunto..."
+                  placeholder="Enter subject..."
                   maxLength={64}
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
@@ -79,11 +82,11 @@ export default function SupportModal({ isOpen, mode = "support", onClose }) {
               </div>
 
               <div className={styles.modalFormGroup}>
-                <label htmlFor="ticketMsg">Mensaje</label>
+                <label htmlFor="ticketMsg">Message</label>
                 <textarea
                   id="ticketMsg"
                   rows={4}
-                  placeholder="Ingrese aquí su mensaje para el soporte..."
+                  placeholder="Enter your message here..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   required
@@ -93,41 +96,41 @@ export default function SupportModal({ isOpen, mode = "support", onClose }) {
               {submitted && (
                 <div
                   style={{
-                    color: "#22c55e",
+                    color: "#4ade80",
                     textAlign: "center",
                     fontSize: "0.875rem",
                     marginTop: "0.5rem",
                   }}
                 >
                   <i className="fas fa-check-circle mr-2" />
-                  Mensaje enviado correctamente.
+                  Message sent successfully.
                 </div>
               )}
             </div>
 
-            <div className={styles.modalFooter}>
+            <div className={styles.modalFooter} style={{ paddingBottom: "1.75rem", gap: "1rem" }}>
               <button
                 type="button"
-                className={styles.btnDanger}
+                className={styles.modalBtn}
                 onClick={onClose}
               >
-                Cancelar
+                CANCEL
               </button>
-              <button type="submit" className={styles.btnDanger}>
-                Enviar
+              <button type="submit" className={styles.modalBtn}>
+                SUBMIT
               </button>
             </div>
           </form>
         )}
 
         {mode === "notifications" && (
-          <div className={styles.modalFooter}>
+          <div className={styles.modalFooter} style={{ paddingBottom: "1.75rem" }}>
             <button
               type="button"
-              className={styles.btnDanger}
+              className={styles.modalBtn}
               onClick={onClose}
             >
-              Cerrar
+              CLOSE
             </button>
           </div>
         )}

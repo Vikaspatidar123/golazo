@@ -14,6 +14,9 @@ import BetLimitsModal from "./components/Modals/BetLimitsModal";
 import ContactAgentModal from "./components/Modals/ContactAgentModal";
 import LanguageModal from "./components/Modals/LanguageModal";
 import SupportModal from "./components/Modals/SupportModal";
+import BalanceHistoryModal from "./components/Modals/BalanceHistoryModal";
+import LoginHistoryModal from "./components/Modals/LoginHistoryModal";
+import SportsRulesModal from "./components/Modals/SportsRulesModal";
 
 export default function HomeView() {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -62,7 +65,7 @@ export default function HomeView() {
       {/* Footer */}
       <Footer onOpenModal={handleOpenModal} />
 
-      {/* Modals */}
+      {/* Modals matching golazo.club reference UI */}
       <ChangePasswordModal
         isOpen={activeModal === "password"}
         onClose={handleCloseModal}
@@ -84,7 +87,15 @@ export default function HomeView() {
         mode={activeModal === "notifications" ? "notifications" : "support"}
         onClose={handleCloseModal}
       />
-      <BetLimitsModal
+      <BalanceHistoryModal
+        isOpen={activeModal === "history"}
+        onClose={handleCloseModal}
+      />
+      <LoginHistoryModal
+        isOpen={activeModal === "loginHistory"}
+        onClose={handleCloseModal}
+      />
+      <SportsRulesModal
         isOpen={activeModal === "rules"}
         onClose={handleCloseModal}
       />

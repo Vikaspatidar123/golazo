@@ -13,92 +13,101 @@ export default function ChangePasswordModal({ isOpen, onClose }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password1.length < 6 || password1.length > 16) {
-      setMessage({ type: "error", text: "La contraseña debe contener entre 6 y 16 caracteres." });
+      setMessage({
+        type: "error",
+        text: "Password must be between 6 and 16 characters.",
+      });
       return;
     }
     if (password1 !== password2) {
-      setMessage({ type: "error", text: "Las contraseñas no coinciden." });
+      setMessage({ type: "error", text: "Passwords do not match." });
       return;
     }
-    setMessage({ type: "success", text: "Contraseña cambiada con éxito." });
+    setMessage({ type: "success", text: "Password changed successfully." });
     setTimeout(() => {
+      setMessage(null);
+      setPassword1("");
+      setPassword2("");
       onClose();
     }, 1200);
   };
 
+  const handleCancel = () => {
+    setMessage(null);
+    setPassword1("");
+    setPassword2("");
+    onClose();
+  };
+
   return (
-    <div className={styles.modalBackdrop} onClick={onClose}>
+    <div className={styles.modalBackdrop} onClick={handleCancel}>
       <div
         className={styles.modalDialog}
         onClick={(e) => e.stopPropagation()}
+        style={{ maxWidth: "23rem" }}
       >
+        {/* Header */}
         <div className={styles.modalHeader}>
-          <h6 className={styles.modalTitle}>Cambiar Contraseña</h6>
+          <h6 className={styles.modalTitle}>Change password</h6>
           <button
             type="button"
             className={styles.modalCloseBtn}
-            onClick={onClose}
+            onClick={handleCancel}
+            aria-label="Close"
           >
-            &times;
+            &#x2715;
           </button>
         </div>
 
+        {/* Form Body matching Image 1 */}
         <form onSubmit={handleSubmit}>
-          <div className={styles.modalBody}>
-            <div className={styles.modalFormGroup}>
-              <label htmlFor="pwd1">Nueva contraseña</label>
-              <div style={{ position: "relative" }}>
-                <input
-                  id="pwd1"
-                  type={show1 ? "text" : "password"}
-                  maxLength={16}
-                  value={password1}
-                  onChange={(e) => setPassword1(e.target.value)}
-                  required
-                />
-                <i
-                  className={`fas ${show1 ? "fa-eye-slash" : "fa-eye"}`}
-                  style={{
-                    position: "absolute",
-                    right: "0.5rem",
-                    top: "0.5rem",
-                    cursor: "pointer",
-                    color: "#aaa",
-                  }}
-                  onClick={() => setShow1(!show1)}
-                />
-              </div>
+          <div className={styles.modalBody} style={{ padding: "2.25rem 1.75rem 1rem" }}>
+            {/* New Password Row */}
+            <div className={styles.modalUnderlineRow}>
+              <span
+                className={styles.inputEyeIcon}
+                onClick={() => setShow1(!show1)}
+                title={show1 ? "Hide password" : "Show password"}
+              >
+                <i className={`far ${show1 ? "fa-eye-slash" : "fa-eye"}`}></i>
+              </span>
+              <input
+                type={show1 ? "text" : "password"}
+                placeholder="New password"
+                maxLength={16}
+                value={password1}
+                onChange={(e) => setPassword1(e.target.value)}
+                className={styles.underlineInput}
+                autoComplete="new-password"
+                required
+              />
             </div>
 
-            <div className={styles.modalFormGroup}>
-              <label htmlFor="pwd2">Ingrese nuevamente</label>
-              <div style={{ position: "relative" }}>
-                <input
-                  id="pwd2"
-                  type={show2 ? "text" : "password"}
-                  maxLength={16}
-                  value={password2}
-                  onChange={(e) => setPassword2(e.target.value)}
-                  required
-                />
-                <i
-                  className={`fas ${show2 ? "fa-eye-slash" : "fa-eye"}`}
-                  style={{
-                    position: "absolute",
-                    right: "0.5rem",
-                    top: "0.5rem",
-                    cursor: "pointer",
-                    color: "#aaa",
-                  }}
-                  onClick={() => setShow2(!show2)}
-                />
-              </div>
+            {/* Repeat New Password Row */}
+            <div className={styles.modalUnderlineRow} style={{ marginBottom: "1rem" }}>
+              <span
+                className={styles.inputEyeIcon}
+                onClick={() => setShow2(!show2)}
+                title={show2 ? "Hide password" : "Show password"}
+              >
+                <i className={`far ${show2 ? "fa-eye-slash" : "fa-eye"}`}></i>
+              </span>
+              <input
+                type={show2 ? "text" : "password"}
+                placeholder="Repeat new password"
+                maxLength={16}
+                value={password2}
+                onChange={(e) => setPassword2(e.target.value)}
+                className={styles.underlineInput}
+                autoComplete="new-password"
+                required
+              />
             </div>
 
             {message && (
               <div
                 style={{
-                  color: message.type === "error" ? "yellow" : "#22c55e",
+                  color: message.type === "error" ? "#fca5a5" : "#4ade80",
                   textAlign: "center",
                   fontSize: "0.8125rem",
                   marginTop: "0.75rem",
@@ -109,16 +118,17 @@ export default function ChangePasswordModal({ isOpen, onClose }) {
             )}
           </div>
 
-          <div className={styles.modalFooter}>
+          {/* Action Buttons matching Image 1: CANCEL and SUBMIT */}
+          <div className={styles.modalFooter} style={{ gap: "1.25rem", paddingBottom: "2rem" }}>
             <button
               type="button"
-              className={styles.btnDanger}
-              onClick={onClose}
+              className={styles.modalBtn}
+              onClick={handleCancel}
             >
-              Cancelar
+              CANCEL
             </button>
-            <button type="submit" className={styles.btnDanger}>
-              Aceptar
+            <button type="submit" className={styles.modalBtn}>
+              SUBMIT
             </button>
           </div>
         </form>

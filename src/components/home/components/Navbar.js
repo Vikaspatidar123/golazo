@@ -160,8 +160,7 @@ export default function Navbar({ onOpenModal, onOpenDrawer }) {
                   onOpenModal("password");
                 }}
               >
-                <i className="fas fa-key mr-2"></i>
-                <span>Cambiar contraseña</span>
+                Change password
               </button>
               <button
                 type="button"
@@ -171,8 +170,7 @@ export default function Navbar({ onOpenModal, onOpenDrawer }) {
                   onOpenModal("language");
                 }}
               >
-                <i className="fas fa-globe mr-2"></i>
-                <span>Cambiar Idioma</span>
+                Change Language
               </button>
               <button
                 type="button"
@@ -182,8 +180,7 @@ export default function Navbar({ onOpenModal, onOpenDrawer }) {
                   onOpenModal("history");
                 }}
               >
-                <i className="fas fa-history mr-2"></i>
-                <span>Historial de Saldo</span>
+                Balance History
               </button>
               <button
                 type="button"
@@ -193,8 +190,7 @@ export default function Navbar({ onOpenModal, onOpenDrawer }) {
                   onOpenModal("loginHistory");
                 }}
               >
-                <i className="fas fa-sign-in-alt mr-2"></i>
-                <span>Historial de Ingresos</span>
+                Login History
               </button>
               <button
                 type="button"
@@ -204,8 +200,7 @@ export default function Navbar({ onOpenModal, onOpenDrawer }) {
                   onOpenModal("rules");
                 }}
               >
-                <i className="fas fa-book mr-2"></i>
-                <span>Reglamento Deportes</span>
+                Sports Rules
               </button>
               <button
                 type="button"
@@ -215,8 +210,7 @@ export default function Navbar({ onOpenModal, onOpenDrawer }) {
                   onOpenModal("limits");
                 }}
               >
-                <i className="fas fa-sliders-h mr-2"></i>
-                <span>Limites de apuestas</span>
+                Maximum Bet Limits
               </button>
               <button
                 type="button"
@@ -226,16 +220,14 @@ export default function Navbar({ onOpenModal, onOpenDrawer }) {
                   onOpenModal("agent");
                 }}
               >
-                <i className="fas fa-user-shield mr-2"></i>
-                <span>Contactar a mi Agente</span>
+                Contact my Agent
               </button>
               <button
                 type="button"
                 className={styles.dropdownItem}
                 onClick={handleLogout}
               >
-                <i className="fas fa-power-off mr-2 text-danger"></i>
-                <span>Cerrar sesion</span>
+                Logout
               </button>
             </div>
           )}
