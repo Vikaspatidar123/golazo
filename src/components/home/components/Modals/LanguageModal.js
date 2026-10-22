@@ -11,7 +11,7 @@ export default function LanguageModal({ isOpen, onClose }) {
       <div
         className={styles.modalDialog}
         onClick={(e) => e.stopPropagation()}
-        style={{ maxWidth: "23rem" }}
+        style={{ maxWidth: "17rem" }}
       >
         {/* Header */}
         <div className={styles.modalHeader}>

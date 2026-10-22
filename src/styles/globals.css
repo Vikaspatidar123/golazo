@@ -127,3 +127,1402 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: #3c445c;
 }
+
+/* ==================== GLOBAL MODALS (.modal-content) ==================== */
+.modal-content,
+div[class*="modalDialog"] {
+  background-color: rgba(60, 60, 60, 0.95) !important;
+}
+
+/* ==================== MODAL CHANGE PASSWORD ==================== */
+#ModalChangePassword {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2050;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+#ModalChangePassword .modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 18.8rem; /* ~360px matching reference screenshot */
+  margin: auto;
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+#ModalChangePassword .modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color:rgba(60,60,60,.95);
+  /* backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.25rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.7);
+  outline: 0;
+  box-sizing: border-box;
+}
+
+/* Cascading header matching screenshot */
+#ModalChangePassword .modal-header.gradient-card-header {
+  margin-top: -1.75rem;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(40deg, #222638, #141724);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1.125rem rgba(0, 0, 0, 0.5), 0 0.25rem 0.5rem rgba(0, 0, 0, 0.35);
+  padding: 0.875rem 1.25rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+#ModalChangePassword .modal-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+#ModalChangePassword .close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.375rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.85;
+  transition: opacity 0.15s ease;
+  outline: none;
+}
+
+#ModalChangePassword .close:hover {
+  opacity: 1;
+}
+
+/* Modal Body */
+#ModalChangePassword .modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 2rem 1.75rem 2rem;
+  color: #ffffff;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+#ModalChangePassword #ChangePasswdForce {
+  color: #ffffff;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  padding: 0;
+}
+
+/* Material Design floating inputs */
+#ModalChangePassword .md-form {
+  position: relative;
+  margin-bottom: 1.75rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#ModalChangePassword .prefix {
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  font-size: 1.125rem;
+  color: #ffffff;
+  opacity: 0.85;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  line-height: 1;
+  width: 1.5rem;
+  text-align: center;
+  user-select: none;
+}
+
+#ModalChangePassword .prefix:hover {
+  opacity: 1;
+}
+
+#ModalChangePassword .form-control {
+  display: block;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0;
+  outline: 0;
+  height: 2.2rem;
+  width: calc(100% - 2.25rem);
+  margin-left: 2.25rem;
+  padding: 0.35rem 0;
+  font-size: 0.95rem;
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #ffffff;
+  box-sizing: border-box;
+  transition: border-bottom-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#ModalChangePassword .form-control:focus {
+  border-bottom: 1px solid #ffffff !important;
+  box-shadow: 0 1px 0 0 #ffffff !important;
+}
+
+#ModalChangePassword .md-form label {
+  position: absolute;
+  top: 0.4rem;
+  left: 2.25rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.45);
+  cursor: text;
+  transition: transform 0.2s ease-out, color 0.2s ease-out, font-size 0.2s ease-out;
+  transform-origin: 0% 100%;
+  pointer-events: none;
+  line-height: 1.4;
+  user-select: none;
+  margin: 0;
+}
+
+#ModalChangePassword .md-form label.active {
+  font-size: 0.8125rem;
+  transform: translateY(-135%);
+  color: #ffffff !important;
+}
+
+#ModalChangePassword .form-text {
+  margin-left: 2.25rem;
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: #ff6b6b !important;
+}
+
+#ModalChangePassword #ChangePasswordError {
+  min-height: 1.25rem;
+  font-size: 0.8125rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Modal Footer & Buttons */
+#ModalChangePassword .modal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.25rem 1.75rem 2rem;
+  border: none;
+  box-sizing: border-box;
+}
+
+#ModalChangePassword .btn-danger {
+  background: #2b3245;
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  min-width: 7.25rem;
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#ModalChangePassword .btn-danger:hover {
+  background: #373f56;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.35);
+}
+
+#ModalChangePassword .btn-danger:active {
+  background: #1f2533;
+}
+
+/* ==================== USER PROFILE DROPDOWN (matching golazo.club) ==================== */
+.user-profile-dropdown.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  width: auto;
+  min-width:max-content;
+  max-width: 95vw;
+  background-color: rgba(56, 59, 67, 0.95);
+  /* backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0 0 0.25rem 0.25rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.75);
+  padding: .5rem;
+  margin: 0;
+  z-index: 1050;
+  list-style: none;
+  animation: fadeInDown 0.15s ease-out;
+  box-sizing: border-box;
+  /* margin-top: 3px; */
+}
+
+.user-profile-dropdown .dropdown-item {
+
+  display: block;
+  margin: 0.2rem 0rem;
+  padding: .5rem;
+  border-radius: 0.25rem;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1rem; /* ~17px matching reference */
+  font-weight: 500; /* Bold matching reference */
+  line-height: 1.35;
+  letter-spacing: -0.01rem;
+  color: #fff !important;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.user-profile-dropdown .dropdown-item:hover,
+.user-profile-dropdown .dropdown-item:focus,
+.user-profile-dropdown .dropdown-item:active {
+  background-color: #242b3b !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  color: #ffffff !important;
+  text-decoration: none;
+  outline: none;
+}
+
+/* ==================== GLOBAL SCROLLABLE MODALS ==================== */
+.modal-dialog-scrollable {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 2.5rem);
+}
+
+.modal-dialog-scrollable .modal-content {
+  max-height: calc(100vh - 3.5rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-dialog-scrollable .modal-header,
+.modal-dialog-scrollable .modal-footer {
+  flex-shrink: 0;
+}
+
+.modal-dialog-scrollable .modal-body {
+  flex: 1 1 auto;
+  overflow-y: auto !important;
+  overflow-x: auto;
+  max-height: calc(100vh - 13rem);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) rgba(0, 0, 0, 0.15);
+}
+
+.modal-dialog-scrollable .modal-body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.modal-dialog-scrollable .modal-body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.modal-dialog-scrollable .modal-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+}
+
+.modal-dialog-scrollable .modal-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+/* ==================== MODAL GAME / BALANCE HISTORY ==================== */
+#ModalHistory {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2050;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+#ModalHistory .modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 58rem; /* ~928px matching reference screenshot */
+  margin: auto;
+  pointer-events: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 2.5rem);
+}
+
+#ModalHistory .modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: calc(100vh - 3.5rem);
+  background-color: rgba(60,60,60,.95);
+  /* backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.25rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.7);
+  outline: 0;
+  box-sizing: border-box;
+}
+
+#ModalHistory .modal-header.gradient-card-header {
+  flex-shrink: 0;
+  margin-top: -1.75rem;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(40deg, #222638, #141724);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1.125rem rgba(0, 0, 0, 0.5), 0 0.25rem 0.5rem rgba(0, 0, 0, 0.35);
+  padding: 0.875rem 1.25rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+#ModalHistory .modal-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+#ModalHistory .close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.375rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.85;
+  transition: opacity 0.15s ease;
+  outline: none;
+}
+
+#ModalHistory .close:hover {
+  opacity: 1;
+}
+
+#ModalHistory .modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1.5rem 1.5rem 0.75rem;
+  color: #ffffff;
+  font-family: inherit;
+  box-sizing: border-box;
+  overflow-y: auto !important;
+  overflow-x: auto;
+  max-height: calc(100vh - 13rem);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) rgba(0, 0, 0, 0.15);
+}
+
+#ModalHistory .modal-body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+#ModalHistory .modal-body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+#ModalHistory .modal-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+}
+
+#ModalHistory .modal-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+#ModalHistory table#HistoryTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  color: #ffffff;
+}
+
+#ModalHistory table#HistoryTable thead tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+#ModalHistory table#HistoryTable thead th {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: rgba(56, 56, 56, 0.98);
+  padding: 0.75rem 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  border: none;
+  white-space: nowrap;
+}
+
+#ModalHistory table#HistoryTable tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  transition: background-color 0.15s ease;
+}
+
+#ModalHistory table#HistoryTable tbody tr.odd {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+#ModalHistory table#HistoryTable tbody tr.even {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+#ModalHistory table#HistoryTable tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+#ModalHistory table#HistoryTable tbody td {
+  padding: 0.75rem 0.75rem;
+  vertical-align: middle;
+  border: none;
+  font-size: 0.875rem;
+}
+
+#ModalHistory table#HistoryTable th.dt-date,
+#ModalHistory table#HistoryTable td.dt-date {
+  text-align: center;
+  width: 22%;
+}
+
+#ModalHistory table#HistoryTable th.dt-provider,
+#ModalHistory table#HistoryTable td.dt-provider {
+  text-align: center;
+  width: 12%;
+}
+
+#ModalHistory table#HistoryTable th.dt-reason {
+  text-align: center;
+  width: 22%;
+}
+
+#ModalHistory table#HistoryTable td.dt-reason {
+  text-align: left;
+  padding-left: 1.5rem;
+  width: 22%;
+}
+
+#ModalHistory table#HistoryTable th.dt-amount {
+  text-align: center;
+  width: 18%;
+}
+
+#ModalHistory table#HistoryTable td.dt-amount {
+  text-align: right;
+  padding-right: 2rem;
+  width: 18%;
+}
+
+#ModalHistory table#HistoryTable th.dt-after {
+  text-align: center;
+  width: 18%;
+}
+
+#ModalHistory table#HistoryTable td.dt-after {
+  text-align: right;
+  padding-right: 2rem;
+  width: 18%;
+}
+
+#ModalHistory table#HistoryTable th.dt-claim,
+#ModalHistory table#HistoryTable td.dt-claim {
+  text-align: center;
+  width: 8%;
+}
+
+#ModalHistory .btn-history-support {
+  background: #242b3b;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+  outline: none;
+}
+
+#ModalHistory .btn-history-support:hover {
+  background: #313a4f;
+  transform: scale(1.08);
+}
+
+#ModalHistory #HistoryTable_paginate {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+#ModalHistory #HistoryTable_paginate .pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+#ModalHistory #HistoryTable_paginate .page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.95rem;
+  color: #ffffff;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  min-width: 2rem;
+}
+
+#ModalHistory #HistoryTable_paginate .page-item.disabled .page-link {
+  color: rgba(255, 255, 255, 0.4);
+  cursor: default;
+}
+
+#ModalHistory #HistoryTable_paginate .page-item.active .page-link {
+  background-color: #242b3b;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#ModalHistory .modal-footer {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1.5rem 1.75rem;
+  border: none;
+  box-sizing: border-box;
+}
+
+#ModalHistory .btn-danger {
+  background: #2b3245;
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1.85rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  min-width: 6.5rem;
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+#ModalHistory .btn-danger:hover {
+  background: #373f56;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.35);
+}
+
+#ModalHistory .btn-danger:active {
+  background: #1f2533;
+}
+
+/* ==========================================================================
+   Golazo - Modal Login History (#ModalLoginHistory)
+   Matches https://golazo.club/index.php & reference screenshot
+   ========================================================================== */
+
+#ModalLoginHistory {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2050;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+#ModalLoginHistory .modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 58rem; /* ~920px matching reference screenshot */
+  margin: auto;
+  pointer-events: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 2.5rem);
+}
+
+#ModalLoginHistory .modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: calc(100vh - 3.5rem);
+  background-color: rgba(60,60,60,.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.25rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.7);
+  outline: 0;
+  box-sizing: border-box;
+}
+
+#ModalLoginHistory .modal-header.gradient-card-header {
+  flex-shrink: 0;
+  margin-top: -1.75rem;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(40deg, #222638, #141724);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1.125rem rgba(0, 0, 0, 0.5), 0 0.25rem 0.5rem rgba(0, 0, 0, 0.35);
+  padding: 0.875rem 1.25rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+#ModalLoginHistory .modal-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+#ModalLoginHistory .close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.375rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.85;
+  transition: opacity 0.15s ease;
+  outline: none;
+}
+
+#ModalLoginHistory .close:hover {
+  opacity: 1;
+}
+
+#ModalLoginHistory .modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1.25rem 1.25rem 0.5rem;
+  color: #ffffff;
+  font-family: inherit;
+  box-sizing: border-box;
+  overflow-y: auto !important;
+  overflow-x: auto;
+  max-height: calc(100vh - 13rem);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) rgba(0, 0, 0, 0.15);
+}
+
+#ModalLoginHistory .modal-body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+#ModalLoginHistory .modal-body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+#ModalLoginHistory .modal-body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+}
+
+#ModalLoginHistory .modal-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+#ModalLoginHistory table#LoginHistoryTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  color: #ffffff;
+}
+
+#ModalLoginHistory table#LoginHistoryTable thead tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+#ModalLoginHistory table#LoginHistoryTable thead th {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background-color: rgba(56, 56, 56, 0.98);
+  padding: 0.75rem 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  border: none;
+  white-space: nowrap;
+}
+
+#ModalLoginHistory table#LoginHistoryTable tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  transition: background-color 0.15s ease;
+}
+
+#ModalLoginHistory table#LoginHistoryTable tbody tr.odd {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+#ModalLoginHistory table#LoginHistoryTable tbody tr.even {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+#ModalLoginHistory table#LoginHistoryTable tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+#ModalLoginHistory table#LoginHistoryTable tbody td {
+  padding: 0.65rem 0.75rem;
+  vertical-align: middle;
+  border: none;
+  font-size: 0.875rem;
+}
+
+#ModalLoginHistory table#LoginHistoryTable th.dt-date,
+#ModalLoginHistory table#LoginHistoryTable td.dt-date {
+  text-align: center;
+  width: 20%;
+}
+
+#ModalLoginHistory table#LoginHistoryTable th.dt-action {
+  text-align: center;
+  width: 25%;
+}
+
+#ModalLoginHistory table#LoginHistoryTable td.dt-action {
+  text-align: left;
+  padding-left: 1.5rem;
+  width: 25%;
+}
+
+#ModalLoginHistory table#LoginHistoryTable th.dt-ip {
+  text-align: center;
+  width: 45%;
+}
+
+#ModalLoginHistory table#LoginHistoryTable td.dt-ip {
+  text-align: right;
+  padding-right: 2.25rem;
+  width: 45%;
+}
+
+#ModalLoginHistory table#LoginHistoryTable th.dt-device,
+#ModalLoginHistory table#LoginHistoryTable td.dt-device {
+  text-align: center;
+  width: 10%;
+  font-size: 1.05rem;
+}
+
+#ModalLoginHistory .modal-footer {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1.5rem 1.75rem;
+  border: none;
+  box-sizing: border-box;
+}
+
+#ModalLoginHistory .btn-danger {
+  background: #2b3245;
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1.85rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  min-width: 6.5rem;
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+#ModalLoginHistory .btn-danger:hover {
+  background: #373f56;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.35);
+}
+
+#ModalLoginHistory .btn-danger:active {
+  background: #1f2533;
+}
+
+/* ==========================================================================
+   Golazo - Modal Contact Parent / Contact Information (#ModalContactParent)
+   Matches https://golazo.club/index.php & reference screenshot
+   ========================================================================== */
+
+#ModalContactParent {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2050;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+#ModalContactParent .modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width:31.4rem; /* ~856px matching reference screenshot */
+  margin: auto;
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+#ModalContactParent .modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgba(60,60,60,.95) !important;
+  /* backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.25rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.7);
+  outline: 0;
+  box-sizing: border-box;
+}
+
+#ModalContactParent .modal-header.gradient-card-header {
+  margin-top: -1.75rem;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(40deg, #222638, #141724);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1.125rem rgba(0, 0, 0, 0.5), 0 0.25rem 0.5rem rgba(0, 0, 0, 0.35);
+  padding: 0.875rem 1.25rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+#ModalContactParent .modal-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+#ModalContactParent .close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.375rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.85;
+  transition: opacity 0.15s ease;
+  outline: none;
+}
+
+#ModalContactParent .close:hover {
+  opacity: 1;
+}
+
+#ModalContactParent .modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  /* padding: 2.75rem 3.5rem 1.75rem; */
+  padding: 1.6rem!important;
+  color: #ffffff;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#ModalContactParent .contact-info-p {
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #ffffff;
+  margin: 0 auto 1.85rem;
+  max-width: 44rem;
+  text-align: center;
+}
+
+#ModalContactParent .contact-info-p:last-child {
+  margin-bottom: 0.75rem;
+}
+
+#ModalContactParent .modal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1.5rem 2rem;
+  border: none;
+  box-sizing: border-box;
+}
+
+#ModalContactParent .btn-danger {
+  background: #2b3245;
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1.85rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  min-width: 6.5rem;
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+#ModalContactParent .btn-danger:hover {
+  background: #373f56;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.35);
+}
+
+#ModalContactParent .btn-danger:active {
+  background: #1f2533;
+}
+
+/* ==========================================================================
+   Golazo - Contact Support Modal (#ModalContactSupport)
+   Matches media_1792690808347.png
+   ========================================================================== */
+
+#ModalContactSupport {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2050;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+#ModalContactSupport .modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 32.5rem;
+  margin: auto;
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+#ModalContactSupport .modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgba(60, 60, 60, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.25rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.7);
+  outline: 0;
+  box-sizing: border-box;
+}
+
+#ModalContactSupport .modal-header.gradient-card-header {
+  margin-top: -1.75rem;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(40deg, #222638, #141724);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1.125rem rgba(0, 0, 0, 0.5), 0 0.25rem 0.5rem rgba(0, 0, 0, 0.35);
+  padding: 0.875rem 1.25rem;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+#ModalContactSupport .modal-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+#ModalContactSupport .close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.375rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.85;
+  transition: opacity 0.15s ease;
+  outline: none;
+}
+
+#ModalContactSupport .close:hover {
+  opacity: 1;
+}
+
+#ModalContactSupport .modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 2.25rem 2rem 1.25rem;
+  color: #ffffff;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+#ModalContactSupport .support-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+#ModalContactSupport .support-row-icon-col {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#ModalContactSupport .support-attach-circle {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background-color: #242b3b;
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.35);
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+#ModalContactSupport .support-attach-circle:hover {
+  background-color: #373f56;
+  transform: scale(1.06);
+}
+
+#ModalContactSupport .support-input-field {
+  flex: 1;
+  min-width: 0;
+}
+
+#ModalContactSupport .support-text-input {
+  width: 100%;
+  background-color: #ffffff;
+  color: #212529;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+}
+
+#ModalContactSupport .support-text-input::placeholder {
+  color: #495057;
+  opacity: 0.85;
+}
+
+#ModalContactSupport .support-textarea-input {
+  width: 100%;
+  background-color: #ffffff;
+  color: #212529;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  resize: none;
+  box-sizing: border-box;
+  min-height: 7.75rem;
+  line-height: 1.45;
+}
+
+#ModalContactSupport .support-textarea-input::placeholder {
+  color: #212529;
+  opacity: 0.95;
+}
+
+#ModalContactSupport .modal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.5rem 1.5rem 2rem;
+  border: none;
+  box-sizing: border-box;
+}
+
+#ModalContactSupport .btn-danger {
+  background: #2b3245;
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1.85rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  min-width: 6.5rem;
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+#ModalContactSupport .btn-danger:hover {
+  background: #373f56;
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.35);
+}
+
+#ModalContactSupport .btn-danger:active {
+  background: #1f2533;
+}
+
+/* ==========================================================================
+   Golazo - Notification Toast (matching reference screenshots)
+   ========================================================================== */
+
+.golazo-toast-wrapper {
+  position: fixed;
+  top: 3.5rem;
+  right: 0.25rem;
+  z-index: 9999;
+  width: 25.5rem;
+  max-width: calc(100vw - 2.5rem);
+  pointer-events: auto;
+  animation: toastSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes toastSlideIn {
+  from {
+    transform: translateX(110%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.golazo-toast-wrapper .toast {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 0.35rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.golazo-toast-wrapper .toast-header {
+  background-color: #2e2c2d;
+  color: #ffffff;
+  padding: 0.625rem 1rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+}
+
+.golazo-toast-wrapper .toast-icon {
+  font-size: 0.95rem;
+  margin-right: 0.625rem;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.golazo-toast-wrapper .toast-title {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: #ffffff;
+  flex: 1 1 auto;
+  line-height: 1.2;
+  letter-spacing: -0.01rem;
+}
+
+.golazo-toast-wrapper .toast-time {
+  font-style: italic;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-right: 0.85rem;
+  line-height: 1;
+}
+
+.golazo-toast-wrapper .toast-close-btn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.golazo-toast-wrapper .toast-close-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.golazo-toast-wrapper .toast-body {
+  color: #ffffff;
+  padding: 0.85rem 1.15rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01rem;
+  box-sizing: border-box;
+}
+
+.golazo-toast-wrapper .toast-deposit .toast-body {
+  background-color: #4caf50; /* Sampled rgb(76, 175, 80) */
+}
+
+.golazo-toast-wrapper .toast-withdrawal .toast-body {
+  background-color: #f44236; /* Sampled rgb(244, 66, 54) */
+}
+
+
+
+
+

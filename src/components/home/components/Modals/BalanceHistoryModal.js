@@ -1,204 +1,216 @@
-import React, { useState } from "react";
-import styles from "../../style.module.scss";
+import React, { useEffect } from "react";
 
-export default function BalanceHistoryModal({ isOpen, onClose }) {
-  const [showEmpty, setShowEmpty] = useState(false);
+export default function BalanceHistoryModal({ isOpen, onClose, records }) {
+  // Handle ESC key to dismiss modal
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
-  const records = [
+  const defaultRecords = [
     {
       id: 1,
-      date: "2026-10-21 10:14:02",
-      provider: "Pragmatic Play",
-      reason: "Live Roulette European",
-      amount: "-$25.00",
-      isPositive: false,
-      before: "$1,275.00",
-      after: "$1,250.00",
-      claim: "Settled",
+      date: "22-10-2026 12:34:41",
+      provider: "Agent",
+      reason: "Credit Deduct",
+      amount: "100,00",
+      before: "100,00",
+      balance: "0,00",
     },
     {
       id: 2,
-      date: "2026-10-21 09:42:15",
-      provider: "Pragmatic Play",
-      reason: "Sweet Bonanza (Win)",
-      amount: "+$140.00",
-      isPositive: true,
-      before: "$1,135.00",
-      after: "$1,275.00",
-      claim: "Settled",
-    },
-    {
-      id: 3,
-      date: "2026-10-20 22:18:30",
-      provider: "Red Rake Gaming",
-      reason: "Super 5 Stars Bet",
-      amount: "-$10.00",
-      isPositive: false,
-      before: "$1,145.00",
-      after: "$1,135.00",
-      claim: "Settled",
-    },
-    {
-      id: 4,
-      date: "2026-10-20 18:05:11",
-      provider: "Golazo Cashier",
-      reason: "Agent Credit Deposit",
-      amount: "+$500.00",
-      isPositive: true,
-      before: "$645.00",
-      after: "$1,145.00",
-      claim: "Completed",
-    },
-    {
-      id: 5,
-      date: "2026-10-19 14:22:45",
-      provider: "Sportsbook",
-      reason: "UEFA Champions League Wager",
-      amount: "+$85.50",
-      isPositive: true,
-      before: "$559.50",
-      after: "$645.00",
-      claim: "Settled",
+      date: "22-10-2026 12:33:42",
+      provider: "Agent",
+      reason: "Credit Add",
+      amount: "100,00",
+      before: "0,00",
+      balance: "100,00",
     },
   ];
 
+  const historyRecords = records || defaultRecords;
+
   return (
-    <div className={styles.modalBackdrop} onClick={onClose}>
+    <div
+      className="modal fade show"
+      id="ModalHistory"
+      tabIndex={-1}
+      role="dialog"
+      aria-labelledby="History"
+      aria-modal="true"
+      style={{ paddingRight: "5px", display: "block" }}
+      onClick={onClose}
+    >
       <div
-        className={`${styles.modalDialog} ${styles.modalLg}`}
+        className="modal-dialog modal-dialog-scrollable cascading-modal modal-lg modal-dialog-custom"
+        role="document"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Cascading Header matching #ModalHistory */}
-        <div className={styles.modalHeader}>
-          <h6 className={styles.modalTitle}>Game History</h6>
-          <button
-            type="button"
-            className={styles.modalCloseBtn}
-            onClick={onClose}
-            aria-label="Close"
-          >
-            &#x2715;
-          </button>
-        </div>
-
-        {/* Modal Body matching dataTables_wrapper in #ModalHistory */}
-        <div className={styles.modalBody} style={{ padding: "1.5rem 1.5rem 1rem" }}>
-          <div className={styles.modalTableContainer}>
-            <table className={styles.modalTable} cellSpacing="0">
-              <thead>
-                <tr>
-                  <th style={{ textAlign: "center" }}>Date</th>
-                  <th style={{ textAlign: "center" }}>Provider</th>
-                  <th style={{ textAlign: "center" }}>Reason</th>
-                  <th style={{ textAlign: "center" }}>Amount</th>
-                  <th style={{ textAlign: "center" }}>Balance Before</th>
-                  <th style={{ textAlign: "center" }}>Balance</th>
-                  <th style={{ textAlign: "center" }}>Claim</th>
-                </tr>
-              </thead>
-              <tbody>
-                {showEmpty || records.length === 0 ? (
-                  <tr>
-                    <td colSpan="7" style={{ textAlign: "center", padding: "2rem", color: "#94a3b8" }}>
-                      No data available in table
-                    </td>
-                  </tr>
-                ) : (
-                  records.map((row) => (
-                    <tr key={row.id}>
-                      <td style={{ textAlign: "center" }}>{row.date}</td>
-                      <td style={{ textAlign: "center" }}>{row.provider}</td>
-                      <td style={{ textAlign: "center" }}>{row.reason}</td>
-                      <td
-                        style={{ textAlign: "center" }}
-                        className={
-                          row.isPositive
-                            ? styles.amountPositive
-                            : styles.amountNegative
-                        }
-                      >
-                        {row.amount}
-                      </td>
-                      <td style={{ textAlign: "center" }}>{row.before}</td>
-                      <td style={{ textAlign: "center", fontWeight: "600" }}>{row.after}</td>
-                      <td style={{ textAlign: "center" }}>
-                        <span className={styles.statusBadge}>{row.claim}</span>
-                      </td>
-                    </tr>
-                  ))
-                )}
-              </tbody>
-            </table>
+        <div className="modal-content">
+          <div className="modal-header text-center gradient-card-header red-gradient">
+            <h6 className="modal-title w-100 font-weight-bold text-left ml-2">
+              Game History
+            </h6>
+            <button
+              type="button"
+              className="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              onClick={onClose}
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-
-          {/* Simple Numbers Pagination matching #HistoryTable_paginate */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginTop: "0.75rem",
-              padding: "0 0.25rem",
-              fontSize: "0.8125rem",
-              color: "#94a3b8",
-            }}
-          >
-            <span>Showing 1 to {records.length} entries</span>
-            <div style={{ display: "flex", gap: "0.25rem" }}>
-              <button
-                type="button"
-                style={{
-                  background: "#2b3245",
-                  border: "none",
-                  color: "#ffffff",
-                  padding: "0.25rem 0.65rem",
-                  borderRadius: "0.25rem",
-                  cursor: "pointer",
-                }}
+          <div className="modal-body modal-body-custom white-text">
+            <div
+              id="HistoryTable_wrapper"
+              className="dataTables_wrapper dt-bootstrap4 no-footer"
+            >
+              <div className="top"></div>
+              <div
+                id="HistoryTable_processing"
+                className="dataTables_processing card"
+                style={{ display: "none" }}
               >
-                «
-              </button>
-              <button
-                type="button"
-                style={{
-                  background: "#2b3245",
-                  border: "none",
-                  color: "#ffffff",
-                  padding: "0.25rem 0.65rem",
-                  borderRadius: "0.25rem",
-                  cursor: "pointer",
-                }}
+                Processing...
+              </div>
+              <table
+                id="HistoryTable"
+                className="table table-sm table-striped table-hover w-100 white-text dataTable no-footer"
+                cellSpacing="0"
+                role="grid"
               >
-                1
-              </button>
-              <button
-                type="button"
-                style={{
-                  background: "#2b3245",
-                  border: "none",
-                  color: "#ffffff",
-                  padding: "0.25rem 0.65rem",
-                  borderRadius: "0.25rem",
-                  cursor: "pointer",
-                }}
+                <thead>
+                  <tr role="row">
+                    <th className="sorting_disabled dt-date text-center">
+                      Date
+                    </th>
+                    <th className="sorting_disabled dt-provider text-center">
+                      Provider
+                    </th>
+                    <th className="sorting_disabled dt-reason text-center">
+                      Reason
+                    </th>
+                    <th className="sorting_disabled dt-amount text-center">
+                      Amount
+                    </th>
+                    <th className="sorting_disabled dt-before d-none text-center">
+                      Balance Before
+                    </th>
+                    <th className="sorting_disabled dt-after text-center">
+                      Balance
+                    </th>
+                    <th className="sorting_disabled dt-claim text-center">
+                      Claim
+                    </th>
+                    <th className="sorting_disabled d-none"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {historyRecords.map((item, index) => (
+                    <tr
+                      key={item.id}
+                      role="row"
+                      className={index % 2 === 0 ? "odd" : "even"}
+                    >
+                      <td className="dt-date text-center">{item.date}</td>
+                      <td className="dt-provider text-center">{item.provider}</td>
+                      <td className="dt-reason text-left btn-history-details">
+                        {item.reason}
+                      </td>
+                      <td className="dt-amount text-right">{item.amount}</td>
+                      <td className="dt-before d-none text-right">
+                        {item.before}
+                      </td>
+                      <td className="dt-after text-right">{item.balance}</td>
+                      <td className="dt-claim text-center">
+                        <button
+                          type="button"
+                          className="btn-history-support waves-effect waves-light"
+                          data-provider-id="10"
+                          data-transaction-id=""
+                          aria-label="Soporte"
+                        >
+                          <i className="far fa-comment-dots"></i>
+                        </button>
+                      </td>
+                      <td className="d-none">10</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <div className="bottom row"></div>
+              <div
+                className="dataTables_paginate paging_simple_numbers"
+                id="HistoryTable_paginate"
               >
-                »
-              </button>
+                <ul className="pagination">
+                  <li
+                    className="paginate_button page-item previous disabled"
+                    id="HistoryTable_previous"
+                  >
+                    <a
+                      href="#"
+                      aria-controls="HistoryTable"
+                      data-dt-idx="0"
+                      tabIndex={0}
+                      className="page-link"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      &laquo;
+                    </a>
+                  </li>
+                  <li className="paginate_button page-item active">
+                    <a
+                      href="#"
+                      aria-controls="HistoryTable"
+                      data-dt-idx="1"
+                      tabIndex={0}
+                      className="page-link"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      1
+                    </a>
+                  </li>
+                  <li
+                    className="paginate_button page-item next disabled"
+                    id="HistoryTable_next"
+                  >
+                    <a
+                      href="#"
+                      aria-controls="HistoryTable"
+                      data-dt-idx="2"
+                      tabIndex={0}
+                      className="page-link"
+                      onClick={(e) => e.preventDefault()}
+                    >
+                      &raquo;
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className="clear"></div>
             </div>
           </div>
-        </div>
 
-        {/* Modal Footer matching #ModalHistory */}
-        <div className={styles.modalFooter} style={{ paddingBottom: "1.75rem" }}>
-          <button
-            type="button"
-            className={styles.modalBtn}
-            onClick={onClose}
-          >
-            Close
-          </button>
+          <div className="modal-footer justify-content-center py-2">
+            <button
+              type="button"
+              className="btn btn-danger px-3 waves-effect waves-light"
+              data-dismiss="modal"
+              onClick={onClose}
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>

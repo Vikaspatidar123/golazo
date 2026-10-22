@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "../style.module.scss";
 
-export default function Navbar({ onOpenModal, onOpenDrawer }) {
+export default function Navbar({ onOpenModal, onOpenDrawer, onRefreshBalance }) {
   const router = useRouter();
   const [balance, setBalance] = useState("0,00");
   const [isRefreshing, setIsRefreshing] = useState(false);
@@ -30,6 +30,9 @@ export default function Navbar({ onOpenModal, onOpenDrawer }) {
   const handleRefreshBalance = () => {
     if (isRefreshing) return;
     setIsRefreshing(true);
+    if (onRefreshBalance) {
+      onRefreshBalance();
+    }
     setTimeout(() => {
       setIsRefreshing(false);
     }, 700);
@@ -107,7 +110,7 @@ export default function Navbar({ onOpenModal, onOpenDrawer }) {
           </button>
 
           {supportDropdownOpen && (
-            <div className={styles.dropdownMenu}>
+            <div className={`${styles.dropdownMenu} ${styles.supportDropdownMenu}`}>
               <div className={styles.dropdownHeader}>• Mesa de ayuda •</div>
               <button
                 type="button"
@@ -120,13 +123,19 @@ export default function Navbar({ onOpenModal, onOpenDrawer }) {
                 <i className="fas fa-paper-plane mr-2"></i>
                 <span>Reportar un problema</span>
               </button>
-              <div className={styles.dropdownHeader}>• Notificaciones •</div>
               <button
                 type="button"
                 className={styles.dropdownItem}
                 onClick={() => {
                   setSupportDropdownOpen(false);
-                  onOpenModal("notifications");
+                  if (onRefreshBalance) {
+                    onRefreshBalance({
+                      type: "deposit",
+                      title: "Notification",
+                      time: "9s",
+                      message: "Successful deposit: 100,00 credits",
+                    });
+                  }
                 }}
               >
                 <i className="fas fa-bell mr-2"></i>
@@ -141,6 +150,10 @@ export default function Navbar({ onOpenModal, onOpenDrawer }) {
           <button
             type="button"
             className={styles.userProfileBtn}
+            id="userDropdown"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded={userDropdownOpen}
             onClick={() => {
               setUserDropdownOpen(!userDropdownOpen);
               setSupportDropdownOpen(false);
@@ -151,84 +164,105 @@ export default function Navbar({ onOpenModal, onOpenDrawer }) {
           </button>
 
           {userDropdownOpen && (
-            <div className={styles.dropdownMenu}>
-              <button
-                type="button"
-                className={styles.dropdownItem}
-                onClick={() => {
+            <div
+              className={`dropdown-menu dropdown-menu-right user-profile-dropdown show ${styles.dropdownMenu}`}
+              aria-labelledby="userDropdown"
+            >
+              <a
+                className={`dropdown-item waves-effect waves-light ${styles.dropdownItem}`}
+                href="#"
+                id="ChangeOwnPassword"
+                onClick={(e) => {
+                  e.preventDefault();
                   setUserDropdownOpen(false);
                   onOpenModal("password");
                 }}
               >
-                Change password
-              </button>
-              <button
-                type="button"
-                className={styles.dropdownItem}
-                onClick={() => {
+                Cambiar contraseña
+              </a>
+              <a
+                className={`dropdown-item waves-effect waves-light ${styles.dropdownItem}`}
+                href="#"
+                id="ChangeLanguage"
+                onClick={(e) => {
+                  e.preventDefault();
                   setUserDropdownOpen(false);
                   onOpenModal("language");
                 }}
               >
-                Change Language
-              </button>
-              <button
-                type="button"
-                className={styles.dropdownItem}
-                onClick={() => {
+                Cambiar Idioma
+              </a>
+              <a
+                className={`dropdown-item waves-effect waves-light ${styles.dropdownItem}`}
+                href="#"
+                id="History"
+                onClick={(e) => {
+                  e.preventDefault();
                   setUserDropdownOpen(false);
                   onOpenModal("history");
                 }}
               >
-                Balance History
-              </button>
-              <button
-                type="button"
-                className={styles.dropdownItem}
-                onClick={() => {
+                Historial de Saldo
+              </a>
+              <a
+                className={`dropdown-item waves-effect waves-light ${styles.dropdownItem}`}
+                href="#"
+                id="LoginHistory"
+                onClick={(e) => {
+                  e.preventDefault();
                   setUserDropdownOpen(false);
                   onOpenModal("loginHistory");
                 }}
               >
-                Login History
-              </button>
-              <button
-                type="button"
-                className={styles.dropdownItem}
-                onClick={() => {
+                Historial de Ingresos
+              </a>
+              <a
+                className={`dropdown-item waves-effect waves-light ${styles.dropdownItem}`}
+                href="#"
+                id="Rules"
+                onClick={(e) => {
+                  e.preventDefault();
                   setUserDropdownOpen(false);
                   onOpenModal("rules");
                 }}
               >
-                Sports Rules
-              </button>
-              <button
-                type="button"
-                className={styles.dropdownItem}
-                onClick={() => {
+                Reglamento Deportes
+              </a>
+              <a
+                className={`dropdown-item waves-effect waves-light ${styles.dropdownItem}`}
+                href="#"
+                id="OwnLimits"
+                onClick={(e) => {
+                  e.preventDefault();
                   setUserDropdownOpen(false);
                   onOpenModal("limits");
                 }}
               >
-                Maximum Bet Limits
-              </button>
-              <button
-                type="button"
-                className={styles.dropdownItem}
-                onClick={() => {
+                Limites de apuestas
+              </a>
+              <a
+                className={`dropdown-item waves-effect waves-light ${styles.dropdownItem}`}
+                href="#"
+                id="ContactParent"
+                onClick={(e) => {
+                  e.preventDefault();
                   setUserDropdownOpen(false);
                   onOpenModal("agent");
                 }}
               >
-                Contact my Agent
-              </button>
-              <button
-                type="button"
-                className={styles.dropdownItem}
-                onClick={handleLogout}
+                Contactar a mi Agente
+              </a>
+              <a
+                className={`dropdown-item waves-effect waves-light ${styles.dropdownItem}`}
+                href="#"
+                id="Logout"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLogout();
+                }}
               >
-                Logout
-              </button>
+                Cerrar sesion
+              </a>
             </div>
           )}
         </div>

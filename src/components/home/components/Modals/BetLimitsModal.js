@@ -9,7 +9,7 @@ export default function BetLimitsModal({ isOpen, onClose }) {
       <div
         className={styles.modalDialog}
         onClick={(e) => e.stopPropagation()}
-        style={{ maxWidth: "23rem" }}
+        style={{ maxWidth: "32rem" }}
       >
         {/* Header matching Image 4 */}
         <div className={styles.modalHeader}>

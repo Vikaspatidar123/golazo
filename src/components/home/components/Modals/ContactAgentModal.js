@@ -1,80 +1,80 @@
-import React from "react";
-import styles from "../../style.module.scss";
+import React, { useEffect } from "react";
 
 export default function ContactAgentModal({ isOpen, onClose }) {
+  // Handle ESC key to dismiss modal
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
-    <div className={styles.modalBackdrop} onClick={onClose}>
+    <div
+      className="modal fade show"
+      id="ModalContactParent"
+      tabIndex={-1}
+      role="dialog"
+      aria-labelledby="ContactParent"
+      aria-modal="true"
+      style={{ paddingRight: "5px", display: "block" }}
+      onClick={onClose}
+    >
       <div
-        className={`${styles.modalDialog} ${styles.modalMd}`}
+        className="modal-dialog cascading-modal modal-lg modal-dialog-centered modal-dialog-custom"
+        role="document"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Cascading Header matching #ModalContactParent */}
-        <div className={styles.modalHeader}>
-          <h6 className={styles.modalTitle}>Contact information</h6>
-          <button
-            type="button"
-            className={styles.modalCloseBtn}
-            onClick={onClose}
-            aria-label="Close"
-          >
-            &#x2715;
-          </button>
-        </div>
-
-        {/* Modal Body matching #ModalContactParentContent */}
-        <div
-          className={styles.modalBody}
-          style={{ textAlign: "center", lineHeight: "1.6", padding: "1.75rem 1.75rem 1.25rem" }}
-        >
-          <p style={{ fontSize: "0.9375rem", color: "#f8fafc", margin: "0 0 1rem", fontWeight: "500" }}>
-            You can contact your Agent by:
-          </p>
-
-          <div
-            style={{
-              background: "rgba(0, 0, 0, 0.25)",
-              border: "1px solid rgba(255, 255, 255, 0.1)",
-              padding: "1rem 1.25rem",
-              borderRadius: "0.25rem",
-              marginBottom: "1rem",
-              fontSize: "0.875rem",
-              color: "#ffffff",
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.5rem",
-              textAlign: "left",
-            }}
-          >
-            <div>
-              <span style={{ color: "#94a3b8" }}>Agent Name:</span>{" "}
-              <strong>Master Agent Central</strong>
-            </div>
-            <div>
-              <span style={{ color: "#94a3b8" }}>Contact Channel:</span>{" "}
-              <strong>WhatsApp / Telegram Support</strong>
-            </div>
-            <div>
-              <span style={{ color: "#94a3b8" }}>Hours of Operation:</span>{" "}
-              <span>24/7 Available</span>
-            </div>
+        <div className="modal-content">
+          <div className="modal-header text-center gradient-card-header red-gradient">
+            <h6 className="modal-title w-100 font-weight-bold text-left ml-2">
+              Contact information
+            </h6>
+            <button
+              type="button"
+              className="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              onClick={onClose}
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
 
-          <p style={{ fontSize: "0.8125rem", color: "#94a3b8", margin: 0 }}>
-            This information will be useful if you lose contact with your Agent, or if they change their number and you cannot get in touch.
-          </p>
-        </div>
-
-        {/* Modal Footer */}
-        <div className={styles.modalFooter} style={{ paddingBottom: "1.75rem" }}>
-          <button
-            type="button"
-            className={styles.modalBtn}
-            onClick={onClose}
+          <div
+            id="ModalContactParentContent"
+            className="modal-body modal-body-custom white-text"
           >
-            Close
-          </button>
+            <p className="contact-info-p">
+              This will display your Agent contact information.
+            </p>
+            <p className="contact-info-p">
+              This information will be useful if you lose contact with your
+              Agent, or if they change their number and you cannot get in
+              touch.
+            </p>
+            <p className="contact-info-p">
+              Because this is a new feature on the site, your Agent has not
+              set this information up yet. Please ask them to do so.
+            </p>
+          </div>
+
+          <div className="modal-footer justify-content-center py-2">
+            <button
+              type="button"
+              className="btn btn-danger px-3 waves-effect waves-light"
+              data-dismiss="modal"
+              onClick={onClose}
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>
