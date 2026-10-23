@@ -4,7 +4,6 @@ import styles from "./style.module.scss";
 
 import Navbar from "@/components/home/components/Navbar";
 import SideDrawer from "@/components/home/components/SideDrawer";
-import Footer from "@/components/home/components/Footer";
 import NotificationToast from "@/components/home/components/NotificationToast";
 
 // Modals
@@ -340,9 +339,6 @@ export default function CasinoView() {
           onResetFilter={handleResetFilter}
         />
       </main>
-
-      {/* Footer */}
-      <Footer onOpenModal={(modal) => setActiveModal(modal)} />
 
       {/* Standard Golazo Modals */}
       <ChangePasswordModal
