@@ -9,60 +9,46 @@ export default function BetLimitsModal({ isOpen, onClose }) {
       <div
         className={styles.modalDialog}
         onClick={(e) => e.stopPropagation()}
+        style={{ maxWidth: "32rem" }}
       >
+        {/* Header matching Image 4 */}
         <div className={styles.modalHeader}>
-          <h6 className={styles.modalTitle}>Limites de apuestas</h6>
+          <h6 className={styles.modalTitle}>Maximum Bet Limits</h6>
           <button
             type="button"
             className={styles.modalCloseBtn}
             onClick={onClose}
+            aria-label="Close"
           >
-            &times;
+            &#x2715;
           </button>
         </div>
 
-        <div className={styles.modalBody}>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: "0.5rem 0",
-              borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
-            }}
-          >
-            <span>Casino Vivo</span>
-            <strong>300.000</strong>
+        {/* Body matching Image 4 */}
+        <div className={styles.modalBody} style={{ padding: "2rem 1.75rem 1.25rem" }}>
+          <div className={styles.betLimitRow}>
+            <span className={styles.betLimitLabel}>Live Casino</span>
+            <span className={styles.betLimitValue}>300.000</span>
           </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              padding: "0.5rem 0",
-              borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
-            }}
-          >
-            <span>Slots</span>
-            <strong>15.000</strong>
+
+          <div className={styles.betLimitRow}>
+            <span className={styles.betLimitLabel}>Slots</span>
+            <span className={styles.betLimitValue}>15.000</span>
           </div>
-          <p
-            style={{
-              color: "#aaa",
-              fontSize: "0.8125rem",
-              marginTop: "1.25rem",
-              marginBottom: 0,
-            }}
-          >
-            • Las apuestas que excedan estos límites serán rechazadas.
+
+          <p className={styles.betLimitNote}>
+            • Any bet that exceeds these limits will be automatically rejected.
           </p>
         </div>
 
-        <div className={styles.modalFooter}>
+        {/* Footer matching #ModalOwnLimits: Close button */}
+        <div className={styles.modalFooter} style={{ paddingBottom: "2rem" }}>
           <button
             type="button"
-            className={styles.btnDanger}
+            className={styles.modalBtn}
             onClick={onClose}
           >
-            Cerrar
+            Close
           </button>
         </div>
       </div>

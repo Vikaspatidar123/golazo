@@ -1,0 +1,561 @@
+/* Golazo Casino / Slots Page Styles matching golazo.club/casino.php */
+
+.casinoWrapper {
+  min-height: 100vh;
+  background-color: #0c0d14;
+  background-image: url("https://cdn.golazo.club/mkt/images/10/1/bg.png");
+  background-repeat: repeat-y;
+  background-position: top center;
+  background-size: 100% auto;
+  color: #ffffff;
+  font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow: visible;
+  overflow-x: clip;
+  padding-top: 3.5rem; /* Exactly matches 3.5rem fixed navbar with 0 gap */
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.mainContent {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: visible;
+}
+
+/* ==========================================================================
+   GAME VIEWER (#current_container)
+   ========================================================================== */
+.currentContainer {
+  width: 100%;
+  height: calc(100vh - 3.5rem);
+  height: calc(100dvh - 3.5rem);
+  background-color: #12131a;
+  border-bottom: 2px solid #df0024;
+  margin: 0 auto;
+  animation: slideDown 0.3s ease-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
+
+  &:fullscreen,
+  &:-webkit-full-screen {
+    height: 100vh;
+    height: 100dvh;
+    border-bottom: none;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.currentContainerFlex {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.gameObjectWrapper {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  background-color: #000000;
+}
+
+.gameObjectIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Game Menu Sidebar Controls */
+.currentContainerMenu {
+  background-color: #2a2f34;
+  line-height: 1;
+  border-left: 1px solid #444a54;
+  border-bottom: 1px solid grey;
+  width: 44px;
+  height: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    border-bottom: 1px solid #444a54;
+    padding: 0.9rem 0.6rem;
+    cursor: pointer;
+    color: #cccccc;
+    text-align: center;
+    font-size: 1.15rem;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #3b4249;
+      color: #ffffff;
+    }
+
+    &.favoriteActive {
+      color: #ffc107;
+      text-shadow: 0 0 8px rgba(255, 193, 7, 0.6);
+    }
+
+    &.closeBtn {
+      color: #ff6b6b;
+      &:hover {
+        background-color: #df0024;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   STICKY CATEGORIES & ACTIONS BAR (#games_categories)
+   ========================================================================== */
+.gamesCategories {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1001;
+  top: 3.5rem; /* Locked directly beneath the 3.5rem fixed navbar with 0 gap */
+  background-color: #2a2f34;
+  border-top: 1px solid #444a54;
+  border-bottom: 1px solid #444a54;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.45);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.gamesActions {
+  padding: 4px 8px;
+  background-color: #2a2f34;
+  border-bottom: 1px solid #3b4249;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gamesBtnGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0 auto;
+}
+
+.actionBtn {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #dddddd;
+  background-image: linear-gradient(#333333, #111111);
+  border: 1px solid #444444;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  user-select: none;
+
+  &:hover {
+    background-image: none;
+    background-color: #767272;
+    color: #ffffff;
+  }
+
+  &.active {
+    color: #ff7777 !important;
+    background-image: linear-gradient(#333333, #111111) !important;
+    border-color: #ff7777 !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Search bar */
+.searchBox {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 2px;
+}
+
+.inputSearch {
+  height: 30px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: #111111;
+  background-color: #ffffff;
+  border: 1px solid rgba(128, 137, 150, 0.5);
+  border-radius: 4px 0 0 4px;
+  width: 140px;
+  outline: none;
+  font-weight: 500;
+  transition: width 0.2s ease;
+
+  &:focus {
+    width: 170px;
+    border-color: #666666;
+  }
+}
+
+.btnSearchSubmit {
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(#333333, #767272);
+  border: 1px solid #444444;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-image: none;
+    background-color: #111111;
+  }
+}
+
+/* Inside category scrollable list */
+.catListInsideWrapper {
+  position: relative;
+  background-color: #2a2f34;
+  width: 100%;
+}
+
+.catListInside {
+  padding: 3px 6px 1px 6px;
+  text-align: center;
+  overflow: hidden;
+  white-space: normal;
+  max-height: 38px;
+  transition: max-height 0.35s ease-in-out;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &.catListInsideExpand {
+    max-height: 180px;
+    overflow-y: auto;
+    padding-bottom: 4px;
+
+    @media (max-width: 768px) {
+      max-height: 70vh;
+    }
+  }
+}
+
+.catListItem {
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #dddddd;
+  background-image: linear-gradient(#333333, #111111);
+  border: 1px solid #444444;
+  border-radius: 6px;
+  margin: 2px 2px;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  min-width: 76px;
+  max-width: 95px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-image: none;
+    background-color: #767272;
+    color: #ffffff;
+  }
+
+  &.active {
+    color: #ff7777 !important;
+    background-image: linear-gradient(#333333, #111111) !important;
+    border: 1px solid #ff7777 !important;
+    box-shadow: none !important;
+  }
+}
+
+.catListMore {
+  width: 30px;
+  height: 30px;
+  float: right;
+  margin: 2px 4px 2px 4px;
+  background-image: linear-gradient(#333333, #767272);
+  border: 1px solid #444444;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-image: none;
+    background-color: #111111;
+  }
+}
+
+.catButtonDown {
+  text-align: center;
+  cursor: pointer;
+  line-height: 1;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2px;
+
+  i {
+    color: #ffffff;
+    font-size: 11px;
+    opacity: 0.8;
+    display: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.showCollapse {
+      display: inline-block;
+    }
+  }
+
+  &.catButtonDownExpanded {
+    padding-top: 2px;
+  }
+}
+
+/* ==========================================================================
+   GAMES CONTAINER & GRID (#games_container)
+   ========================================================================== */
+.gamesSection {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 10px 12px 60px 12px;
+  min-height: 60vh;
+  box-sizing: border-box;
+}
+
+.gamesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px 12px;
+  }
+}
+
+/* Game Item Card */
+.gameItem {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #141622;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6);
+
+    .gameImage {
+      opacity: 0.85;
+    }
+
+    .playOverlay {
+      opacity: 1;
+    }
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 72%; /* Approx 1.39:1 aspect ratio matching banners in Image 1 */
+  overflow: hidden;
+  background-color: #12141c;
+  border-radius: 12px;
+}
+
+.gameImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: opacity 0.25s ease;
+}
+
+/* Play Icon Mask Overlay (Matching Image 3) */
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  border-radius: 12px;
+
+  i {
+    font-size: 3.5rem;
+    color: #ff7777;
+    filter: drop-shadow(0 0 10px rgba(255, 119, 119, 0.7));
+  }
+}
+
+/* Heart Favorite Button (Clean icon matching Image 1) */
+.heartInGame {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 20;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  i {
+    font-size: 1.15rem;
+    text-shadow: 0 0 4px #000000;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.9));
+  }
+
+  .heartYellow {
+    color: #ffeb3b;
+    filter: drop-shadow(0 0 6px rgba(255, 235, 59, 0.8));
+  }
+
+  .heartWhite {
+    color: #ffffff;
+  }
+}
+
+/* Game Title Footer is hidden in Image 1 */
+.footerName {
+  display: none !important;
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  color: #ffffff;
+
+  .spinner {
+    width: 44px;
+    height: 44px;
+    border: 3px solid rgba(255, 255, 255, 0.15);
+    border-top-color: #df0024;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 1.25rem;
+  }
+
+  p {
+    color: #8b92a2;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 6rem 2rem;
+  color: #c7cbd4;
+
+  i {
+    font-size: 3.5rem;
+    color: #555555;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #8b92a2;
+    max-width: 400px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .resetBtn {
+    background-color: #2b3245;
+    color: #ffffff;
+    border: none;
+    padding: 0.65rem 1.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #373f56;
+    }
+  }
+}

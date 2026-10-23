@@ -8,6 +8,10 @@ const nextConfig = {
         destination: '/',
       },
       {
+        source: '/casino.php',
+        destination: '/casino',
+      },
+      {
         source: '/login.php',
         destination: '/login',
       },

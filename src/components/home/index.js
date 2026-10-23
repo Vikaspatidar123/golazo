@@ -14,10 +14,21 @@ import BetLimitsModal from "./components/Modals/BetLimitsModal";
 import ContactAgentModal from "./components/Modals/ContactAgentModal";
 import LanguageModal from "./components/Modals/LanguageModal";
 import SupportModal from "./components/Modals/SupportModal";
+import BalanceHistoryModal from "./components/Modals/BalanceHistoryModal";
+import LoginHistoryModal from "./components/Modals/LoginHistoryModal";
+import SportsRulesModal from "./components/Modals/SportsRulesModal";
+import NotificationToast from "./components/NotificationToast";
 
 export default function HomeView() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [activeModal, setActiveModal] = useState(null);
+  const [toastData, setToastData] = useState({
+    visible: true,
+    type: "deposit",
+    title: "Notification",
+    time: "9s",
+    message: "Successful deposit: 100,00 credits",
+  });
 
   const handleOpenModal = (modalName) => {
     setActiveModal(modalName);
@@ -27,12 +38,31 @@ export default function HomeView() {
     setActiveModal(null);
   };
 
+  const handleTriggerToast = (customData) => {
+    setToastData((prev) => ({
+      visible: true,
+      type: customData?.type || (prev.type === "deposit" ? "withdrawal" : "deposit"),
+      title: "Notification",
+      time: customData?.time || (prev.type === "deposit" ? "5m" : "9s"),
+      message:
+        customData?.message ||
+        (prev.type === "deposit"
+          ? "Successful withdrawal: 100,00 credits"
+          : "Successful deposit: 100,00 credits"),
+    }));
+  };
+
+  const handleCloseToast = () => {
+    setToastData((prev) => ({ ...prev, visible: false }));
+  };
+
   return (
     <div className={styles.homeWrapper}>
       {/* Fixed Top Navbar */}
       <Navbar
         onOpenModal={handleOpenModal}
         onOpenDrawer={() => setDrawerOpen(true)}
+        onRefreshBalance={handleTriggerToast}
       />
 
       {/* Mobile Drawer */}
@@ -62,7 +92,7 @@ export default function HomeView() {
       {/* Footer */}
       <Footer onOpenModal={handleOpenModal} />
 
-      {/* Modals */}
+      {/* Modals matching golazo.club reference UI */}
       <ChangePasswordModal
         isOpen={activeModal === "password"}
         onClose={handleCloseModal}
@@ -84,9 +114,27 @@ export default function HomeView() {
         mode={activeModal === "notifications" ? "notifications" : "support"}
         onClose={handleCloseModal}
       />
-      <BetLimitsModal
+      <BalanceHistoryModal
+        isOpen={activeModal === "history"}
+        onClose={handleCloseModal}
+      />
+      <LoginHistoryModal
+        isOpen={activeModal === "loginHistory"}
+        onClose={handleCloseModal}
+      />
+      <SportsRulesModal
         isOpen={activeModal === "rules"}
         onClose={handleCloseModal}
+      />
+
+      {/* Fixed Right-Side Notification Toast */}
+      <NotificationToast
+        visible={toastData.visible}
+        type={toastData.type}
+        title={toastData.title}
+        time={toastData.time}
+        message={toastData.message}
+        onClose={handleCloseToast}
       />
     </div>
   );

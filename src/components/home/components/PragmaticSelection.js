@@ -6,13 +6,13 @@ const pragmaticCards = [
   {
     id: "2244",
     title: "Gates of Olimpus Roulette",
-    image: "https://cdn.golazo.club/games_images/pragmatic/2244.orig.jpg",
+    image: "/assets/images/pragmatic/2244.orig.jpg",
     url: "/livecasino?system=500&pagecode=2244",
   },
   {
     id: "103",
     title: "Lobby Blackjack",
-    image: "https://cdn.golazo.club/games_images/pragmatic/103.orig.jpg",
+    image: "/assets/images/pragmatic/103.orig.jpg",
     url: "/livecasino?system=500&pagecode=103",
   },
 ];

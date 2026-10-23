@@ -1,136 +1,236 @@
-import React, { useState } from "react";
-import styles from "../../style.module.scss";
+import React, { useState, useRef, useEffect } from "react";
 
 export default function SupportModal({ isOpen, mode = "support", onClose }) {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [attachedFile, setAttachedFile] = useState(null);
   const [submitted, setSubmitted] = useState(false);
 
+  const fileInputRef = useRef(null);
+
+  // Handle ESC key to dismiss modal
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        handleCancel();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isOpen]);
+
   if (!isOpen) return null;
+
+  const handleCancel = () => {
+    setSubject("");
+    setMessage("");
+    setAttachedFile(null);
+    setSubmitted(false);
+    onClose();
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
     setTimeout(() => {
-      setSubmitted(false);
-      setSubject("");
-      setMessage("");
-      onClose();
-    }, 1500);
+      handleCancel();
+    }, 1200);
+  };
+
+  const handleAttachClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      const file = e.target.files[0];
+      if (file.type && file.type.startsWith("image/")) {
+        setAttachedFile(file);
+      } else {
+        alert("Por favor seleccione únicamente archivos de imagen (PNG, JPG, etc.).");
+      }
+    }
   };
 
   return (
-    <div className={styles.modalBackdrop} onClick={onClose}>
+    <div
+      className="modal fade in show"
+      id="ModalContactSupport"
+      tabIndex="-1"
+      role="dialog"
+      aria-labelledby="supportModalLabel"
+      aria-hidden="true"
+      style={{ display: "flex" }}
+      onClick={handleCancel}
+    >
       <div
-        className={`${styles.modalDialog} ${styles.modalLg}`}
+        className="modal-dialog cascading-modal"
+        role="document"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className={styles.modalHeader}>
-          <h6 className={styles.modalTitle}>
-            {mode === "notifications"
-              ? "Notificaciones"
-              : "Contactar a Mesa de ayuda"}
-          </h6>
-          <button
-            type="button"
-            className={styles.modalCloseBtn}
-            onClick={onClose}
-          >
-            &times;
-          </button>
-        </div>
-
-        {mode === "notifications" ? (
-          <div className={styles.modalBody} style={{ textAlign: "center", padding: "2rem" }}>
-            <i
-              className="far fa-bell"
-              style={{ fontSize: "2.5rem", color: "#f05e15", marginBottom: "1rem" }}
-            />
-            <p style={{ color: "#c7cbd4" }}>No hay nuevas notificaciones en este momento.</p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit}>
-            <div className={styles.modalBody}>
-              <div
-                style={{
-                  background: "rgba(220, 53, 69, 0.2)",
-                  border: "1px solid rgba(220, 53, 69, 0.4)",
-                  padding: "0.75rem 1rem",
-                  borderRadius: "0.25rem",
-                  marginBottom: "1.25rem",
-                  fontSize: "0.8125rem",
-                  color: "#ffc9c9",
-                }}
-              >
-                Se encuentra fuera del horario de atencion. Responderemos su mensaje a la brevedad.
-              </div>
-
-              <div className={styles.modalFormGroup}>
-                <label htmlFor="ticketSubject">Asunto</label>
-                <input
-                  id="ticketSubject"
-                  type="text"
-                  placeholder="Ingrese el asunto..."
-                  maxLength={64}
-                  value={subject}
-                  onChange={(e) => setSubject(e.target.value)}
-                  required
-                />
-              </div>
-
-              <div className={styles.modalFormGroup}>
-                <label htmlFor="ticketMsg">Mensaje</label>
-                <textarea
-                  id="ticketMsg"
-                  rows={4}
-                  placeholder="Ingrese aquí su mensaje para el soporte..."
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  required
-                />
-              </div>
-
-              {submitted && (
-                <div
-                  style={{
-                    color: "#22c55e",
-                    textAlign: "center",
-                    fontSize: "0.875rem",
-                    marginTop: "0.5rem",
-                  }}
-                >
-                  <i className="fas fa-check-circle mr-2" />
-                  Mensaje enviado correctamente.
-                </div>
-              )}
-            </div>
-
-            <div className={styles.modalFooter}>
-              <button
-                type="button"
-                className={styles.btnDanger}
-                onClick={onClose}
-              >
-                Cancelar
-              </button>
-              <button type="submit" className={styles.btnDanger}>
-                Enviar
-              </button>
-            </div>
-          </form>
-        )}
-
-        {mode === "notifications" && (
-          <div className={styles.modalFooter}>
+        <div className="modal-content">
+          {/* Header matching golazo floating gradient card */}
+          <div className="modal-header gradient-card-header blue-gradient darken-2">
+            <h4 className="title modal-title" id="supportModalLabel">
+              {mode === "notifications" ? "Notificaciones" : "Contact Support"}
+            </h4>
             <button
               type="button"
-              className={styles.btnDanger}
-              onClick={onClose}
+              className="close"
+              aria-label="Close"
+              onClick={handleCancel}
             >
-              Cerrar
+              <span aria-hidden="true">&times;</span>
             </button>
           </div>
-        )}
+
+          {mode === "notifications" ? (
+            <>
+              <div className="modal-body text-center" style={{ padding: "2.5rem 1.5rem" }}>
+                <i
+                  className="far fa-bell"
+                  style={{
+                    fontSize: "2.5rem",
+                    color: "#ffffff",
+                    opacity: 0.85,
+                    marginBottom: "1rem",
+                    display: "block",
+                  }}
+                />
+                <p style={{ color: "#ffffff", margin: 0, fontSize: "1rem" }}>
+                  No hay nuevas notificaciones en este momento.
+                </p>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={handleCancel}
+                >
+                  CLOSE
+                </button>
+              </div>
+            </>
+          ) : (
+            <form onSubmit={handleSubmit}>
+              <div className="modal-body">
+                {/* Row 1: Subject input (aligned with textarea) */}
+                <div className="support-row">
+                  <div className="support-row-icon-col"></div>
+                  <div className="support-input-field">
+                    <input
+                      type="text"
+                      className="support-text-input"
+                      placeholder="Subject"
+                      value={subject}
+                      onChange={(e) => setSubject(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+
+                {/* Row 2: Paperclip attachment button + Message textarea */}
+                <div className="support-row">
+                  <div className="support-row-icon-col">
+                    <button
+                      type="button"
+                      className="support-attach-circle"
+                      onClick={handleAttachClick}
+                      aria-label="Adjuntar imagen"
+                    >
+                      <i className="fas fa-paperclip"></i>
+                    </button>
+                    <input
+                      type="file"
+                      ref={fileInputRef}
+                      accept="image/*"
+                      style={{ display: "none" }}
+                      onChange={handleFileChange}
+                    />
+                  </div>
+                  <div className="support-input-field">
+                    <textarea
+                      className="support-textarea-input"
+                      placeholder="Type here your message"
+                      rows={5}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+
+                {/* Optional attachment preview */}
+                {attachedFile && (
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "flex-end",
+                      gap: "0.5rem",
+                      fontSize: "0.85rem",
+                      color: "#93c5fd",
+                      marginTop: "-0.75rem",
+                      marginBottom: "0.75rem",
+                    }}
+                  >
+                    <i className="fas fa-paperclip"></i>
+                    <span>{attachedFile.name}</span>
+                    <button
+                      type="button"
+                      onClick={() => setAttachedFile(null)}
+                      style={{
+                        background: "transparent",
+                        border: "none",
+                        color: "#ef4444",
+                        cursor: "pointer",
+                        fontWeight: "bold",
+                        fontSize: "1rem",
+                        padding: "0 0.25rem",
+                      }}
+                      title="Remove attachment"
+                    >
+                      &times;
+                    </button>
+                  </div>
+                )}
+
+                {/* Success feedback */}
+                {submitted && (
+                  <div
+                    style={{
+                      color: "#4ade80",
+                      textAlign: "center",
+                      fontSize: "0.9375rem",
+                      fontWeight: "600",
+                      marginTop: "0.5rem",
+                    }}
+                  >
+                    <i className="fas fa-check-circle mr-2" />
+                    Message sent successfully!
+                  </div>
+                )}
+              </div>
+
+              {/* Footer with centered CANCEL and SUBMIT buttons */}
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-danger"
+                  onClick={handleCancel}
+                >
+                  CANCEL
+                </button>
+                <button type="submit" className="btn btn-danger">
+                  SUBMIT
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
       </div>
     </div>
   );

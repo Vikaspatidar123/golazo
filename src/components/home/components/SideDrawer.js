@@ -1,8 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import styles from "../style.module.scss";
 
 export default function SideDrawer({ isOpen, onClose }) {
+  const router = useRouter();
   if (!isOpen) return null;
 
   return (
@@ -29,11 +31,13 @@ export default function SideDrawer({ isOpen, onClose }) {
             <li>
               <Link
                 href="/"
-                className={`${styles.drawerItem} ${styles.active}`}
+                className={`${styles.drawerItem} ${
+                  router.pathname === "/" ? styles.active : ""
+                }`}
                 onClick={onClose}
               >
                 <img
-                  src="https://cdn.golazo.club/images/side_menu/index.png"
+                  src="/assets/images/side_menu/index.png"
                   alt="Inicio"
                 />
                 <span>Inicio</span>
@@ -42,11 +46,13 @@ export default function SideDrawer({ isOpen, onClose }) {
             <li>
               <Link
                 href="/casino"
-                className={styles.drawerItem}
+                className={`${styles.drawerItem} ${
+                  router.pathname.startsWith("/casino") ? styles.active : ""
+                }`}
                 onClick={onClose}
               >
                 <img
-                  src="https://cdn.golazo.club/images/side_menu/casino.png"
+                  src="/assets/images/side_menu/casino.png"
                   alt="Slots"
                 />
                 <span>Slots</span>
@@ -55,11 +61,13 @@ export default function SideDrawer({ isOpen, onClose }) {
             <li>
               <Link
                 href="/livecasino"
-                className={styles.drawerItem}
+                className={`${styles.drawerItem} ${
+                  router.pathname.startsWith("/livecasino") ? styles.active : ""
+                }`}
                 onClick={onClose}
               >
                 <img
-                  src="https://cdn.golazo.club/images/side_menu/livecasino.png"
+                  src="/assets/images/side_menu/livecasino.png"
                   alt="Casino Vivo"
                 />
                 <span>Casino Vivo</span>
@@ -72,7 +80,7 @@ export default function SideDrawer({ isOpen, onClose }) {
                 onClick={onClose}
               >
                 <img
-                  src="https://cdn.golazo.club/images/side_menu/crazzy_win.png"
+                  src="/assets/images/side_menu/crazzy_win.png"
                   alt="CrazZy Win!"
                 />
                 <span>CrazZy Win!</span>
@@ -84,7 +92,7 @@ export default function SideDrawer({ isOpen, onClose }) {
         {/* Promo banner at bottom */}
         <div>
           <img
-            src="https://cdn.golazo.club/mkt/images/es/sidenav_promo.png"
+            src="/assets/images/side_menu/sidenav_promo.png"
             id="sidenav-promo-banner"
             alt="Promoción"
             className={styles.drawerPromoBanner}

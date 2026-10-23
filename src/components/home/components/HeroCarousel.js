@@ -4,15 +4,15 @@ import styles from "../style.module.scss";
 const slides = [
   {
     id: 1,
-    bgImg: "https://cdn.golazo.club/mkt/promo/798/header.jpg",
-    logoImg: "https://cdn.golazo.club/mkt/promo/798/header_logo_pts.png",
+    bgImg: "/assets/images/hero/header.jpg",
+    logoImg: "/assets/images/hero/header_logo_pts.png",
     url: "/crazzy_win",
     alt: "Copa Red Rake Gaming 10.000 USDT",
   },
   {
     id: 2,
-    bgImg: "https://cdn.golazo.club/mkt/images/10/1/header_001.jpg",
-    logoImg: "https://cdn.golazo.club/mkt/images/10/1/header_logo_game.png",
+    bgImg: "/assets/images/hero/header_001.jpg",
+    logoImg: "/assets/images/hero/header_logo_game.png",
     url: "/casino",
     alt: "Juegos Destacados Golazo",
   },

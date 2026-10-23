@@ -6,96 +6,51 @@ export default function LanguageModal({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const handleSelect = (lang) => {
-    setSelectedLang(lang);
-    setTimeout(onClose, 300);
-  };
-
   return (
     <div className={styles.modalBackdrop} onClick={onClose}>
       <div
         className={styles.modalDialog}
         onClick={(e) => e.stopPropagation()}
-        style={{ maxWidth: "22rem" }}
+        style={{ maxWidth: "17rem" }}
       >
+        {/* Header */}
         <div className={styles.modalHeader}>
-          <h6 className={styles.modalTitle}>Cambiar Idioma</h6>
+          <h6 className={styles.modalTitle}>Change Language</h6>
           <button
             type="button"
             className={styles.modalCloseBtn}
             onClick={onClose}
+            aria-label="Close"
           >
-            &times;
+            &#x2715;
           </button>
         </div>
 
-        <div className={styles.modalBody}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-            <button
-              type="button"
-              onClick={() => handleSelect("es")}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.75rem",
-                padding: "0.75rem 1rem",
-                background: selectedLang === "es" ? "#292d3d" : "transparent",
-                border: "1px solid rgba(255,255,255,0.15)",
-                borderRadius: "0.375rem",
-                color: "#ffffff",
-                cursor: "pointer",
-                fontSize: "0.9375rem",
-              }}
+        {/* Body matching Image 3: Underline select dropdown */}
+        <div className={styles.modalBody} style={{ padding: "2.5rem 2rem 1.5rem" }}>
+          <div className={styles.modalUnderlineSelectGroup}>
+            <select
+              value={selectedLang}
+              onChange={(e) => setSelectedLang(e.target.value)}
+              aria-label="Select language"
             >
-              <img
-                src="https://cdn.golazo.club/images/flags/es.png"
-                alt="Español"
-                width="24"
-                height="16"
-              />
-              <span>Español</span>
-              {selectedLang === "es" && (
-                <i className="fas fa-check" style={{ marginLeft: "auto", color: "#22c55e" }} />
-              )}
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleSelect("en")}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.75rem",
-                padding: "0.75rem 1rem",
-                background: selectedLang === "en" ? "#292d3d" : "transparent",
-                border: "1px solid rgba(255,255,255,0.15)",
-                borderRadius: "0.375rem",
-                color: "#ffffff",
-                cursor: "pointer",
-                fontSize: "0.9375rem",
-              }}
-            >
-              <img
-                src="https://cdn.golazo.club/images/flags/us.png"
-                alt="English"
-                width="24"
-                height="16"
-              />
-              <span>English</span>
-              {selectedLang === "en" && (
-                <i className="fas fa-check" style={{ marginLeft: "auto", color: "#22c55e" }} />
-              )}
-            </button>
+              <option value="" disabled>Select</option>
+              <option value="es">Español</option>
+              <option value="en">English</option>
+              <option value="pt">Português</option>
+            </select>
+            <span className={styles.selectArrow}>&#9660;</span>
           </div>
         </div>
 
-        <div className={styles.modalFooter}>
+        {/* Footer matching Image 3: CLOSE button */}
+        <div className={styles.modalFooter} style={{ paddingBottom: "2rem" }}>
           <button
             type="button"
-            className={styles.btnDanger}
+            className={styles.modalBtn}
             onClick={onClose}
           >
-            Cerrar
+            Close
           </button>
         </div>
       </div>
