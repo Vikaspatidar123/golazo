@@ -1,8 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import styles from "../style.module.scss";
 
 export default function SideDrawer({ isOpen, onClose }) {
+  const router = useRouter();
   if (!isOpen) return null;
 
   return (
@@ -29,7 +31,9 @@ export default function SideDrawer({ isOpen, onClose }) {
             <li>
               <Link
                 href="/"
-                className={`${styles.drawerItem} ${styles.active}`}
+                className={`${styles.drawerItem} ${
+                  router.pathname === "/" ? styles.active : ""
+                }`}
                 onClick={onClose}
               >
                 <img
@@ -42,7 +46,9 @@ export default function SideDrawer({ isOpen, onClose }) {
             <li>
               <Link
                 href="/casino"
-                className={styles.drawerItem}
+                className={`${styles.drawerItem} ${
+                  router.pathname.startsWith("/casino") ? styles.active : ""
+                }`}
                 onClick={onClose}
               >
                 <img
@@ -55,7 +61,9 @@ export default function SideDrawer({ isOpen, onClose }) {
             <li>
               <Link
                 href="/livecasino"
-                className={styles.drawerItem}
+                className={`${styles.drawerItem} ${
+                  router.pathname.startsWith("/livecasino") ? styles.active : ""
+                }`}
                 onClick={onClose}
               >
                 <img

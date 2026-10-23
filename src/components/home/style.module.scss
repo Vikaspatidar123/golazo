@@ -25,6 +25,7 @@
   padding: 0 1.5rem;
   z-index: 1030;
   box-sizing: border-box;
+  font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
 
   @media (max-width: 991.98px) {
     padding: 0 1rem;
@@ -60,6 +61,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
 
   @media (max-width: 991.98px) {
     display: none;
@@ -67,6 +69,7 @@
 }
 
 .navLink {
+  font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   font-size: 0.9375rem; /* 15px */
   font-weight: 500;
   color: #f05e15;
@@ -93,6 +96,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   font-size: 0.9375rem;
   color: #ffffff;
   cursor: pointer;
@@ -115,7 +119,9 @@
   }
 
   .balanceAmount {
+    font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
     font-weight: 500;
+    font-size: 0.9375rem;
   }
 }
 
@@ -149,6 +155,7 @@
   background: transparent;
   border: none;
   color: #ff7700;
+  font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   font-size: 0.9375rem;
   font-weight: 500;
   cursor: pointer;
@@ -168,8 +175,9 @@
 
   .usernameText {
     color: #ff7700;
-    font-weight: 400;
-    font-family: 'metropolismedium', sans-serif;
+    font-weight: 500;
+    font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+    font-size: 0.9375rem;
     display: inline-block;
   }
 }

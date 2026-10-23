@@ -58,22 +58,42 @@ export default function Navbar({ onOpenModal, onOpenDrawer, onRefreshBalance }) 
         {/* Desktop Nav Links */}
         <ul className={styles.desktopNavLinks}>
           <li>
-            <Link href="/" className={`${styles.navLink} ${styles.active}`}>
+            <Link
+              href="/"
+              className={`${styles.navLink} ${
+                router.pathname === "/" ? styles.active : ""
+              }`}
+            >
               Inicio
             </Link>
           </li>
           <li>
-            <Link href="/casino" className={styles.navLink}>
+            <Link
+              href="/casino"
+              className={`${styles.navLink} ${
+                router.pathname.startsWith("/casino") ? styles.active : ""
+              }`}
+            >
               Slots
             </Link>
           </li>
           <li>
-            <Link href="/livecasino" className={styles.navLink}>
+            <Link
+              href="/livecasino"
+              className={`${styles.navLink} ${
+                router.pathname.startsWith("/livecasino") ? styles.active : ""
+              }`}
+            >
               Casino Vivo
             </Link>
           </li>
           <li>
-            <Link href="/crazzy_win" className={styles.navLink}>
+            <Link
+              href="/crazzy_win"
+              className={`${styles.navLink} ${
+                router.pathname.startsWith("/crazzy_win") ? styles.active : ""
+              }`}
+            >
               CrazZy Win!
             </Link>
           </li>
