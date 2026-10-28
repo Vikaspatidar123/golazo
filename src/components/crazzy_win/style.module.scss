@@ -1,0 +1,230 @@
+/* Golazo CrazZy Win! Page Styles matching golazo.club/crazzy_win.php */
+
+.crazzyWinWrapper {
+  min-height: 100vh;
+  background-color: #201939;
+  background-image: url("https://cdn.golazo.club/mkt/images/10/1/bg.png");
+  background-repeat: repeat;
+  color: #ffffff;
+  font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow: visible;
+  overflow-x: clip;
+  padding-top: 3.5rem; /* Matches 3.5rem fixed navbar with 0 gap */
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.mainContent {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-height: calc(100vh - 3.5rem);
+  padding-bottom: 3.5rem;
+}
+
+/* ==========================================================================
+   GAME VIEWER (#current_container)
+   ========================================================================== */
+.currentContainer {
+  width: 100%;
+  height: calc(100vh - 3.5rem);
+  height: calc(100dvh - 3.5rem);
+  background-color: #12131a;
+  border-bottom: 2px solid #df0024;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
+  animation: fadeIn 0.25s ease-out;
+
+  &:fullscreen,
+  &:-webkit-full-screen {
+    height: 100vh;
+    height: 100dvh;
+    border-bottom: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.currentContainerFlex {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.gameObjectWrapper {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  background-color: #000000;
+}
+
+.gameObjectIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.currentContainerMenu {
+  background-color: #2a2f34;
+  line-height: 1;
+  border-left: 1px solid #444a54;
+  border-bottom: 1px solid grey;
+  width: 44px;
+  height: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    border-bottom: 1px solid #444a54;
+    padding: 0.9rem 0.6rem;
+    cursor: pointer;
+    color: #cccccc;
+    text-align: center;
+    font-size: 1.15rem;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #3b4249;
+      color: #ffffff;
+    }
+
+    &.closeBtn {
+      color: #ff6b6b;
+      &:hover {
+        background-color: #df0024;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   BANNER CONTAINER (#banner_container)
+   ========================================================================== */
+.bannerContainer {
+  width: 100%;
+  max-width: none;
+  height: calc(100vw / 4.63);
+  background-image: url("https://cdn.golazo.club/mkt/images/en/crazzy_win.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  border-radius: 0;
+  margin: 0 0 6px 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   GAMES CONTAINER (#games_container)
+   ========================================================================== */
+.gamesContainer {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 3px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+  box-sizing: border-box;
+
+  @media (max-width: 991.98px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    padding: 0 2px;
+  }
+
+  @media (max-width: 575.98px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    padding: 0 2px;
+  }
+}
+
+/* Game Item Card */
+.gameItem {
+  position: relative;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: #14161f;
+
+  &:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 18px rgba(223, 0, 36, 0.35);
+
+    .playOverlay {
+      opacity: 1;
+    }
+
+    .gameImg {
+      transform: scale(1.05);
+      filter: brightness(0.65);
+    }
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* 4:3 slot aspect ratio */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.gameImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 2;
+
+  i {
+    font-size: 3.5rem;
+    color: #ff7777;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    transition: transform 0.2s ease;
+  }
+
+  &:hover i {
+    transform: scale(1.1);
+  }
+}
+
+.footerName {
+  display: none;
+}

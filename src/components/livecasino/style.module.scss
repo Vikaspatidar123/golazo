@@ -1,0 +1,243 @@
+/* Golazo Live Casino Page Styles matching golazo.club/livecasino.php */
+
+.liveCasinoWrapper {
+  min-height: 100vh;
+  background-color: #201939;
+  background-image: url("https://cdn.golazo.club/mkt/images/10/1/bg.png");
+  background-repeat: repeat;
+  color: #ffffff;
+  font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow: visible;
+  overflow-x: clip;
+  padding-top: 3.5rem; /* Matches 3.5rem fixed navbar with 0 gap */
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.mainContent {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-height: calc(100vh - 3.5rem);
+  padding-bottom: 3rem;
+}
+
+/* ==========================================================================
+   GAME VIEWER (#current_container)
+   ========================================================================== */
+.currentContainer {
+  width: 100%;
+  height: calc(100vh - 3.5rem);
+  height: calc(100dvh - 3.5rem);
+  background-color: #12131a;
+  border-bottom: 2px solid #df0024;
+  margin: 0 auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.75);
+  box-sizing: border-box;
+  animation: fadeIn 0.25s ease-out;
+
+  &:fullscreen,
+  &:-webkit-full-screen {
+    height: 100vh;
+    height: 100dvh;
+    border-bottom: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.currentContainerFlex {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.gameObjectWrapper {
+  flex: 1;
+  height: 100%;
+  position: relative;
+  background-color: #000000;
+}
+
+.gameObjectIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.currentContainerMenu {
+  background-color: #2a2f34;
+  line-height: 1;
+  border-left: 1px solid #444a54;
+  border-bottom: 1px solid grey;
+  width: 44px;
+  height: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    border-bottom: 1px solid #444a54;
+    padding: 0.9rem 0.6rem;
+    cursor: pointer;
+    color: #cccccc;
+    text-align: center;
+    font-size: 1.15rem;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: #3b4249;
+      color: #ffffff;
+    }
+
+    &.closeBtn {
+      color: #ff6b6b;
+      &:hover {
+        background-color: #df0024;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   BANNER CONTAINER (#banner_container)
+   ========================================================================== */
+.bannerContainer {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2.25rem;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    max-height: calc(100vw / 3.65);
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+  }
+
+  @media (max-width: 991.98px) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   GAMES CONTAINER (#games_container)
+   ========================================================================== */
+.gamesContainer {
+  // width: 100%;
+  // max-width: 1240px;
+  margin: 0 3rem;
+  padding: 0 1.5rem 4rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  box-sizing: border-box;
+
+  @media (max-width: 991.98px) {
+    gap: 1.5rem;
+    padding: 0 1rem 3rem 1rem;
+  }
+
+  @media (max-width: 575.98px) {
+    gap: 1.25rem;
+    padding: 0 0.75rem 2rem 0.75rem;
+  }
+}
+
+/* Provider Game Item Card - Matches Image 1 precisely */
+.gameItem {
+  position: relative;
+  width: calc(33.333% - 1.5rem);
+  max-width: 360px;
+  min-width: 260px;
+  cursor: pointer;
+  border-radius: 16px;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.025);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+
+    .playOverlay {
+      opacity: 1;
+    }
+
+    .gameImg {
+      transform: scale(1.04);
+      filter: brightness(0.75);
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    width: calc(50% - 1rem);
+  }
+
+  @media (max-width: 575.98px) {
+    width: 88%;
+    max-width: 330px;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  display: block;
+}
+
+.gameImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 2;
+
+  i {
+    font-size: 3.5rem;
+    color: #df0024;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+    transition: transform 0.2s ease;
+  }
+
+  &:hover i {
+    transform: scale(1.1);
+  }
+}

@@ -12,6 +12,14 @@ const nextConfig = {
         destination: '/casino',
       },
       {
+        source: '/livecasino.php',
+        destination: '/livecasino',
+      },
+      {
+        source: '/crazzy_win.php',
+        destination: '/crazzy_win',
+      },
+      {
         source: '/login.php',
         destination: '/login',
       },
