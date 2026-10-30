@@ -9,9 +9,18 @@ export default function Navbar({ onOpenModal, onOpenDrawer, onRefreshBalance }) 
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [supportDropdownOpen, setSupportDropdownOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const [supportIconIndex, setSupportIconIndex] = useState(0);
 
   const supportRef = useRef(null);
   const userRef = useRef(null);
+
+  // Cycling icon for support menu matching CreateNavSlider in golazo.club
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSupportIconIndex((prev) => (prev + 1) % 2);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -101,8 +110,9 @@ export default function Navbar({ onOpenModal, onOpenDrawer, onRefreshBalance }) 
       </div>
 
       <div className={styles.navRight}>
-        {/* Balance with Sync Icon */}
+        {/* Balance with Sync Icon matching #OwnBalanceTop and .own-balance */}
         <div
+          id="OwnBalanceTop"
           className={styles.balanceBox}
           onClick={handleRefreshBalance}
           title="Actualizar saldo"
@@ -112,21 +122,26 @@ export default function Navbar({ onOpenModal, onOpenDrawer, onRefreshBalance }) 
               isRefreshing ? styles.spinning : ""
             }`}
           ></i>
-          <span className={styles.balanceAmount}>{balance}</span>
+          <span className={`own-balance ${styles.balanceAmount}`}>{balance}</span>
         </div>
 
-        {/* Support Dropdown */}
+        {/* Support Dropdown matching #navbarSupportMenuLink */}
         <div className={styles.dropdownContainer} ref={supportRef}>
           <button
             type="button"
             className={styles.iconBtn}
+            id="navbarSupportMenuLink"
             onClick={() => {
               setSupportDropdownOpen(!supportDropdownOpen);
               setUserDropdownOpen(false);
             }}
             title="Mesa de ayuda y notificaciones"
           >
-            <i className="far fa-comment-dots"></i>
+            {supportIconIndex === 0 ? (
+              <i className="far fa-bell" id="navbarSupportMenuNotifications"></i>
+            ) : (
+              <i className="far fa-comment-dots" id="navbarSupportMenuSupport"></i>
+            )}
           </button>
 
           {supportDropdownOpen && (

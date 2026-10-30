@@ -16,26 +16,26 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 3.5rem; /* 56px */
-  background-color: #201939;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  height: 51px; /* Exact 51px matching golazo.club .navbar { height: 51px; } */
+  background-color: #201939; /* Exact #201939 matching .white-skin .navbar { background: #201939; } */
+  border-bottom: 1px solid #ffffff !important; /* Exact pure solid white 1px border matching live golazo.club */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.5rem;
+  padding: 4px 1rem;
   z-index: 1030;
   box-sizing: border-box;
   font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
 
   @media (max-width: 991.98px) {
-    padding: 0 1rem;
+    padding: 4px 0.75rem;
   }
 }
 
 .navLeft {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0;
 }
 
 .hamburgerBtn {
@@ -43,9 +43,9 @@
   background: transparent;
   border: none;
   color: #ffffff;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   cursor: pointer;
-  padding: 0.25rem;
+  padding: 0 5px;
   align-items: center;
   justify-content: center;
 
@@ -57,7 +57,7 @@
 .desktopNavLinks {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -70,10 +70,11 @@
 
 .navLink {
   font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-  font-size: 0.9375rem; /* 15px */
+  font-size: 15px; /* Exact 15px matching .double-nav a { font-size: 15px; color: #f05e15; font-weight: 500; } */
   font-weight: 500;
-  color: #f05e15;
+  color: #f05e15; /* Exact #f05e15 matching mkt/css/10/1/index.css */
   text-decoration: none;
+  padding: 0 1rem !important; /* Exact 16px padding matching live .nav-link at >= 1200px */
   transition: color 0.2s ease;
   cursor: pointer;
 
@@ -82,36 +83,39 @@
   }
 
   &.active {
-    color: #ffffff !important;
+    color: #ffffff !important; /* Exact #ffffff matching .double-nav a.active { color: #fff; } */
+    font-family: 'metropolisextra_light', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+    font-weight: 400;
   }
 }
 
 .navRight {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0;
 }
 
 .balanceBox {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-  font-size: 0.9375rem;
+  font-size: 15px;
   color: #ffffff;
   cursor: pointer;
   user-select: none;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  transition: background 0.2s ease;
+  padding: 0 0.75rem !important;
+  margin-left: 8px;
+  min-width: 100px; /* Exact matching .own-balance { min-width: 100px!important; font-weight: 400; position: relative; } */
+  transition: opacity 0.2s ease;
 
   &:hover {
-    background: rgba(255, 255, 255, 0.05);
+    opacity: 0.85;
   }
 
   .syncIcon {
-    color: #22c55e; /* Green */
-    font-size: 0.875rem;
+    color: lightgreen; /* Exact matching #OwnBalanceTop i { color: lightgreen; font-size: .9rem; } */
+    font-size: 0.9rem;
+    margin-right: 6px;
 
     &.spinning {
       animation: spin 0.8s linear infinite;
@@ -120,8 +124,9 @@
 
   .balanceAmount {
     font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-    font-weight: 500;
-    font-size: 0.9375rem;
+    font-weight: 400;
+    font-size: 15px;
+    color: #ffffff;
   }
 }
 
@@ -133,52 +138,54 @@
   background: transparent;
   border: none;
   color: #ffffff;
-  font-size: 1.125rem;
+  font-size: 1rem;
   cursor: pointer;
-  padding: 0.375rem;
+  padding: 0 1rem !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.25rem;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: color 0.2s ease;
 
   &:hover {
     color: #f49d17;
-    background: rgba(255, 255, 255, 0.05);
   }
 }
 
 .userProfileBtn {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
   background: transparent;
   border: none;
-  color: #ff7700;
+  color: #f05e15 !important; /* Exact #f05e15 sampled from live golazo.club navbar */
   font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-  font-size: 0.9375rem;
+  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  transition: color 0.2s ease, background 0.2s ease;
+  padding: 0 1rem 0 1.35rem !important;
+  transition: color 0.2s ease;
 
   &:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.05);
+    color: #f49d17 !important;
+    .userIcon,
+    .usernameText {
+      color: #f49d17 !important;
+    }
   }
 
   .userIcon {
     font-size: 1rem;
-    color: #ff7700;
+    color: #f05e15 !important;
+    margin-right: 14px;
+    transition: color 0.2s ease;
   }
 
   .usernameText {
-    color: #ff7700;
+    color: #f05e15 !important;
     font-weight: 500;
     font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-    font-size: 0.9375rem;
+    font-size: 15px;
     display: inline-block;
+    transition: color 0.2s ease;
   }
 }
 
@@ -186,25 +193,21 @@
   position: absolute;
   top: 100%;
   right: 0;
-  width: 18.5rem;
+  width: auto;
   min-width: 18rem;
   max-width: 95vw;
-  background-color: rgba(56, 59, 67, 0.95);
-  // backdrop-filter: blur(10px);
-  // -webkit-backdrop-filter: blur(10px);
+  background-color: #292d3d; /* Exact #292d3d matching reference */
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 0 0 0.25rem 0.25rem;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.75);
-  padding: 0.65rem 0;
-  margin: 0;
+  padding: 0.5rem;
+  margin-top: 3px; /* Exact margin-top: 3px matching .navbar .dropdown-menu { margin-top: 3px; } */
   z-index: 1050;
   animation: fadeInDown 0.15s ease-out;
-  // margin-top: 3px;
 
   &.supportDropdownMenu {
-    width: max-content;
-    min-width: 13rem;
+    width: 19rem !important; /* Exact 19rem matching .navbar .support-nav .dropdown-menu { width: 19rem!important; } */
+    min-width: 19rem;
   }
 
   .dropdownHeader {
@@ -213,13 +216,13 @@
 
   .dropdownItem {
     display: block;
-    margin: 0.2rem 0rem;
-    padding: .5rem;
+    margin: 0.2rem 0;
+    padding: 0.5rem;
     border-radius: 0.25rem;
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 0.9375rem;
+    font-weight: 400;
     font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color: #fff !important;
+    color: #ffffff !important;
     text-decoration: none;
     background: transparent;
     border: none;
@@ -227,15 +230,12 @@
     white-space: nowrap;
     cursor: pointer;
     box-sizing: border-box;
-    line-height: 1.35;
-    letter-spacing: -0.01rem;
-    transition: background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: background-color 0.15s ease-in-out;
 
     &:hover,
     &:active,
     &:focus {
       background-color: #242b3b !important;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
       color: #ffffff !important;
     }
   }
@@ -257,7 +257,7 @@
   left: 0;
   bottom: 0;
   width: 17.5rem; /* 280px */
-  background-color: #201939;
+  background: linear-gradient(40deg, #292d3d, #03040d) !important;
   z-index: 1050;
   box-shadow: 0.25rem 0 1rem rgba(0, 0, 0, 0.5);
   display: flex;
@@ -334,10 +334,12 @@
 .heroCarousel {
   position: relative;
   width: 100%;
-  height: 35rem; /* 560px */
-  margin-top: 3.5rem; /* clear fixed navbar */
+  height: 600px;
+  min-height: 600px; /* Exact min-height: 600px matching #header-lobby { min-height: 600px; } */
+  margin-top: 0; /* Exact 0 matching golazo.club where hero starts behind fixed navbar at top: 0 */
   overflow: hidden;
   background-color: #120e24;
+  border-bottom: 1px solid #ffffff; /* Exact white border at y=599.0 matching live site */
 
   @media (max-width: 991.98px) {
     height: 25rem;
@@ -361,6 +363,15 @@
   }
 }
 
+.slideLinkWrapper {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  text-decoration: none;
+}
+
 .slideBackground {
   position: absolute;
   inset: 0;
@@ -378,7 +389,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid #ffffff;
 }
 
 .slideLogo {
@@ -395,64 +406,32 @@
 }
 
 .carouselArrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.35);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 20;
-  transition: background 0.2s ease, transform 0.2s ease;
-
-  &:hover {
-    background: rgba(0, 0, 0, 0.7);
-    transform: translateY(-50%) scale(1.08);
-  }
-
-  &.arrowPrev {
-    left: 1.5rem;
-    @media (max-width: 640px) {
-      display: none;
-    }
-  }
-
-  &.arrowNext {
-    right: 1.5rem;
-    @media (max-width: 640px) {
-      display: none;
-    }
-  }
+  display: none !important; /* Arrows hidden matching live golazo.club carousel */
 }
 
 .carouselIndicators {
   position: absolute;
-  bottom: 1.25rem;
+  bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 0.5rem;
+  gap: 6px;
   z-index: 20;
 
   .indicatorDot {
-    width: 0.625rem;
-    height: 0.625rem;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.5);
     border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease;
 
     &.activeDot {
       background: #ffffff;
-      width: 1.5rem;
-      border-radius: 0.3125rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
     }
   }
 }
@@ -460,9 +439,9 @@
 /* ==================== MAIN CONTENT ==================== */
 .mainContainer {
   width: 100%;
-  max-width: 75rem; /* 1200px */
+  max-width: 1140px; /* Exact Bootstrap container width for viewport >= 1200px */
   margin: 0 auto;
-  padding: 1.5rem 1rem 4rem;
+  padding: 0 15px 4rem 15px;
   box-sizing: border-box;
 }
 
@@ -471,15 +450,17 @@
   font-weight: 700;
   color: #ffffff;
   text-transform: uppercase;
-  margin: 2.5rem 0 1.25rem;
+  margin: 3rem 0 1.5rem;
   text-align: left;
   letter-spacing: -0.01rem;
+  font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
 
   @media (max-width: 768px) {
     font-size: 1.2rem;
     margin: 1.75rem 0 1rem;
   }
 }
+
 
 /* ==================== PRAGMATIC 2-CARD GRID ==================== */
 .pragmaticGrid {
@@ -546,14 +527,20 @@
 }
 
 .redRakeHeading {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 
   h2 {
-    color: #ea1417;
-    font-size: 1.75rem;
+    color: #EA1417;
+    font-size: 2rem;
     font-weight: 700;
     margin: 0;
     text-align: left;
+    padding-top: 1rem;
+    font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+
+    span {
+      color: #EA1417;
+    }
   }
 }
 
@@ -563,13 +550,15 @@
   border: 1px solid #0025ff;
   border-radius: 0.5rem;
   box-shadow: inset 0px 0px 25px #0025ff;
-  padding: 1.5rem 1.5rem 3rem 1.5rem;
+  padding: 0px 30px 60px 30px;
   background: rgba(0, 0, 0, 0.2);
 }
 
 .blogSliderTrack {
   display: flex;
   gap: 1.25rem; /* 20px */
+  padding-top: 30px;
+  padding-bottom: 30px;
   transition: transform 0.4s ease-out;
   will-change: transform;
 }
@@ -584,7 +573,7 @@
   transition: transform 0.25s ease;
 
   &:hover {
-    transform: scale(1.08);
+    transform: scale(1.12);
     z-index: 2;
   }
 
@@ -600,8 +589,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-  margin-top: 1.25rem;
+  position: relative !important;
+  top: -30px !important;
+  margin: 0 auto;
 
   .paginationBullet {
     height: 0.5rem;
@@ -610,10 +600,11 @@
     background-color: #dfdfde;
     border: none;
     cursor: pointer;
-    transition: all 0.2s ease;
+    margin: 0 4px;
+    transition: all 0.2s linear;
 
     &.bulletActive {
-      width: 2rem;
+      width: 3rem;
       background: #ea1417;
     }
   }
@@ -649,7 +640,7 @@
   background-color: #120e24;
 
   &:hover {
-    transform: scale(1.08);
+    transform: scale(1.12);
     z-index: 2;
   }
 

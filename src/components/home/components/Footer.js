@@ -55,7 +55,7 @@ export default function Footer({ onOpenModal }) {
         </div>
 
         <div>
-          <h6 className={styles.footerColTitle}>Productos</h6>
+          <h6 className={styles.footerColTitle}>PRODUCTOS</h6>
           <div className={styles.accentDivider}></div>
           <ul className={styles.footerLinkList}>
             <li>
@@ -71,7 +71,7 @@ export default function Footer({ onOpenModal }) {
         </div>
 
         <div>
-          <h6 className={styles.footerColTitle}>Nosotros</h6>
+          <h6 className={styles.footerColTitle}>NOSOTROS</h6>
           <div className={styles.accentDivider}></div>
           <ul className={styles.footerLinkList}>
             <li>
@@ -110,12 +110,19 @@ export default function Footer({ onOpenModal }) {
           </ul>
         </div>
 
-        <div>
-          <h6 className={styles.footerColTitle}>Promociones</h6>
+        <div id="footer_promo">
+          <h6 className={styles.footerColTitle}>PROMOCIONES</h6>
           <div className={styles.accentDivider}></div>
           <ul className={styles.footerLinkList}>
             <li>
-              <Link href="/crazzy_win">Copa de Red Rake</Link>
+              <Link href="/crazzy_win" className="footer-promotion" data-id="801">
+                Spinomenal Con SPinomenal
+              </Link>
+            </li>
+            <li>
+              <Link href="/casino?system=505" className="footer-promotion" data-id="800">
+                Halloween Free Spin
+              </Link>
             </li>
           </ul>
         </div>

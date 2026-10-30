@@ -37,7 +37,7 @@ export default function RedRakeSlider() {
   return (
     <section id="casino-lobby" className={styles.redRakeSection}>
       <div className={styles.redRakeHeading}>
-        <h2>Recomendados de RedRake</h2>
+        <h2><span>Recomendados de RedRake</span></h2>
       </div>
 
       <div className={styles.blogSliderWrapper}>
@@ -59,21 +59,21 @@ export default function RedRakeSlider() {
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Pagination bullets */}
-      <div className={styles.swiperPagination}>
-        {redRakeGames.map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            className={`${styles.paginationBullet} ${
-              index === activeIndex ? styles.bulletActive : ""
-            }`}
-            onClick={() => handleSlideChange(index)}
-            aria-label={`Slide ${index + 1}`}
-          />
-        ))}
+        {/* Pagination bullets inside blog-slider */}
+        <div className={styles.swiperPagination}>
+          {redRakeGames.map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              className={`${styles.paginationBullet} ${
+                index === activeIndex ? styles.bulletActive : ""
+              }`}
+              onClick={() => handleSlideChange(index)}
+              aria-label={`Slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

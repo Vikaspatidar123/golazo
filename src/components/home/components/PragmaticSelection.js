@@ -19,15 +19,16 @@ const pragmaticCards = [
 
 export default function PragmaticSelection() {
   return (
-    <section>
+    <section id="double-lobby" className="double-lobby">
       <h2 className={styles.categoryTitle}>
-        Nuestra seleccion Pragmatic Live Casino
+        NUESTRA SELECCION PRAGMATIC LIVE CASINO
       </h2>
 
       <div className={styles.pragmaticGrid}>
-        {pragmaticCards.map((card) => (
+        {pragmaticCards.map((card, idx) => (
           <Link key={card.id} href={card.url} className={styles.collectionCard}>
             <img
+              id={`double-rectangle-${idx + 1}`}
               src={card.image}
               alt={card.title}
               className={styles.cardImg}

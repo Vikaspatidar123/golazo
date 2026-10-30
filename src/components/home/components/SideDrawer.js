@@ -27,7 +27,7 @@ export default function SideDrawer({ isOpen, onClose }) {
             </button>
           </div>
 
-          <ul className={styles.drawerList}>
+          <ul className={styles.drawerList} id="sidemenu_global_ul">
             <li>
               <Link
                 href="/"

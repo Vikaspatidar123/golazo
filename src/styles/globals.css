@@ -60,8 +60,8 @@
   --text-danger: #f87171;
   --text-success: #4ade80;
 
-  /* Layout dimensions in rem */
-  --header-height: 4.5rem;
+  /* Layout dimensions */
+  --header-height: 51px; /* 51px exact matching golazo.club .navbar { height: 51px; } */
   --submenu-height: 2.875rem;
   --max-width: 72.5rem; /* 1160px = 72.5rem matching original Golazo width */
 }

@@ -29,7 +29,7 @@ export default function LiveCasinoSlider() {
 
   return (
     <section id="livecasino-lobby" className={styles.liveCasinoSection}>
-      <h3 className={styles.categoryTitle}>Mesas en vivo seleccionadas</h3>
+      <h3 className={styles.categoryTitle}>MESAS EN VIVO SELECCIONADAS</h3>
 
       <div className={styles.liveCasinoTrackWrapper}>
         <button

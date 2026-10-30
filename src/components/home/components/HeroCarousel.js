@@ -1,16 +1,24 @@
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import styles from "../style.module.scss";
 
 const slides = [
   {
-    id: 1,
-    bgImg: "/assets/images/hero/header.jpg",
-    logoImg: "/assets/images/hero/header_logo_pts.png",
+    id: 801,
+    bgImg: "/assets/images/hero/header_801.jpg",
+    logoImg: "/assets/images/hero/header_logo_pts_801.png",
     url: "/crazzy_win",
-    alt: "Copa Red Rake Gaming 10.000 USDT",
+    alt: "Spinomenal Con Spinomenal 10.000 USDT",
   },
   {
-    id: 2,
+    id: 800,
+    bgImg: "/assets/images/hero/header_800.jpg",
+    logoImg: "/assets/images/hero/header_logo_pts_800.png",
+    url: "/casino?system=505",
+    alt: "Halloween Free Spin 2.500 Free Spins",
+  },
+  {
+    id: 3,
     bgImg: "/assets/images/hero/header_001.jpg",
     logoImg: "/assets/images/hero/header_logo_game.png",
     url: "/casino",
@@ -26,17 +34,10 @@ export default function HeroCarousel() {
     if (isPaused) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 4000);
     return () => clearInterval(timer);
   }, [isPaused]);
 
-  const handlePrev = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const handleNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
 
   return (
     <section
@@ -52,39 +53,24 @@ export default function HeroCarousel() {
             index === currentSlide ? styles.activeSlide : ""
           }`}
         >
-          <img
-            src={slide.bgImg}
-            alt="Hero Background"
-            className={styles.slideBackground}
-          />
-          <div className={styles.slideOverlayMask}>
+          <Link href={slide.url} className={styles.slideLinkWrapper}>
             <img
-              src={slide.logoImg}
-              alt={slide.alt}
-              className={styles.slideLogo}
+              src={slide.bgImg}
+              alt="Hero Background"
+              className={styles.slideBackground}
             />
-          </div>
+            <div className={styles.slideOverlayMask}>
+              <img
+                src={slide.logoImg}
+                alt={slide.alt}
+                className={styles.slideLogo}
+              />
+            </div>
+          </Link>
         </div>
       ))}
 
-      {/* Prev / Next Arrows */}
-      <button
-        type="button"
-        className={`${styles.carouselArrow} ${styles.arrowPrev}`}
-        onClick={handlePrev}
-        aria-label="Slide anterior"
-      >
-        <i className="fas fa-chevron-left"></i>
-      </button>
 
-      <button
-        type="button"
-        className={`${styles.carouselArrow} ${styles.arrowNext}`}
-        onClick={handleNext}
-        aria-label="Siguiente slide"
-      >
-        <i className="fas fa-chevron-right"></i>
-      </button>
 
       {/* Indicators */}
       <div className={styles.carouselIndicators}>
