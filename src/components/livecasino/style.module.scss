@@ -9,7 +9,7 @@
   font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   overflow: visible;
   overflow-x: clip;
-  padding-top: 3.5rem; /* Matches 3.5rem fixed navbar with 0 gap */
+  padding-top: 3.1875rem; /* Matches 3.1875rem fixed navbar with 0 gap */
   margin: 0;
   box-sizing: border-box;
 }
@@ -18,7 +18,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  min-height: calc(100vh - 3.5rem);
+  min-height: calc(100vh - 3.1875rem);
   padding-bottom: 3rem;
 }
 
@@ -27,8 +27,8 @@
    ========================================================================== */
 .currentContainer {
   width: 100%;
-  height: calc(100vh - 3.5rem);
-  height: calc(100dvh - 3.5rem);
+  height: calc(100vh - 3.1875rem);
+  height: calc(100dvh - 3.1875rem);
   background-color: #12131a;
   border-bottom: 2px solid #df0024;
   margin: 0 auto;

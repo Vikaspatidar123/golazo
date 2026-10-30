@@ -2,27 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,700&display=swap");
 
 @font-face {
-  font-family: 'metropolisextra_light';
-  src: url('/fonts/metropolis-extralight-webfont.woff2') format('woff2');
+  font-family: "metropolisextra_light";
+  src: url("/fonts/metropolis-extralight-webfont.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'metropolismedium';
-  src: url('/fonts/metropolis-medium-webfont.woff2') format('woff2');
+  font-family: "metropolismedium";
+  src: url("/fonts/metropolis-medium-webfont.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'metropolisregular';
-  src: url('/fonts/metropolis-regular-webfont.woff2') format('woff2');
+  font-family: "metropolisregular";
+  src: url("/fonts/metropolis-regular-webfont.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -66,11 +66,14 @@
   --max-width: 72.5rem; /* 1160px = 72.5rem matching original Golazo width */
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -78,7 +81,13 @@ html, body {
   overflow-x: clip;
   background-color: var(--bg-main);
   color: var(--text-primary);
-  font-family: 'metropolismedium', 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    "metropolismedium",
+    "Roboto",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
@@ -95,7 +104,9 @@ html {
 
 @media (max-width: 480px) {
   html {
-    font-size: 93.75%; /* 1rem = 15px for small mobile */
+    /* font-size: 93.75%; 1rem = 15px for small mobile */
+        font-size: 100%; /* 1rem = 15px for small mobile */
+
   }
 }
 
@@ -111,21 +122,30 @@ button {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 0.5rem;
-  height: 0.5rem;
+  /* width: 0.5rem;
+  height: 0.5rem; */
+  width: 5px;
+  height: 5px;
 }
-
+::-webkit-scrollbar-button {
+  width: 15px;
+  height: 15px;
+}
 ::-webkit-scrollbar-track {
-  background: var(--bg-main);
+  /* background: var(--bg-main); */
+  background: #cfcfcf;
+  border: 0 none #ffffff;
+  border-radius: 50px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2b3144;
-  border-radius: 0.25rem;
+  background: #909090;
+  border: 0 none #ffffff;
+  border-radius: 50px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3c445c;
+  background: #909090;
 }
 
 /* ==================== GLOBAL MODALS (.modal-content) ==================== */
@@ -167,7 +187,7 @@ div[class*="modalDialog"] {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color:rgba(60,60,60,.95);
+  background-color: rgba(60, 60, 60, 0.95);
   /* backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); */
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -185,7 +205,9 @@ div[class*="modalDialog"] {
   margin-bottom: 0.5rem;
   background: linear-gradient(40deg, #222638, #141724);
   border-radius: 0.25rem;
-  box-shadow: 0 0.5rem 1.125rem rgba(0, 0, 0, 0.5), 0 0.25rem 0.5rem rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 0.5rem 1.125rem rgba(0, 0, 0, 0.5),
+    0 0.25rem 0.5rem rgba(0, 0, 0, 0.35);
   padding: 0.875rem 1.25rem;
   border: none;
   display: flex;
@@ -285,7 +307,9 @@ div[class*="modalDialog"] {
   line-height: 1.5;
   color: #ffffff;
   box-sizing: border-box;
-  transition: border-bottom-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-bottom-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 #ModalChangePassword .form-control:focus {
@@ -301,7 +325,10 @@ div[class*="modalDialog"] {
   font-weight: 400;
   color: rgba(255, 255, 255, 0.45);
   cursor: text;
-  transition: transform 0.2s ease-out, color 0.2s ease-out, font-size 0.2s ease-out;
+  transition:
+    transform 0.2s ease-out,
+    color 0.2s ease-out,
+    font-size 0.2s ease-out;
   transform-origin: 0% 100%;
   pointer-events: none;
   line-height: 1.4;
@@ -377,7 +404,7 @@ div[class*="modalDialog"] {
   right: 0;
   left: auto;
   width: auto;
-  min-width:max-content;
+  min-width: max-content;
   max-width: 95vw;
   background-color: rgba(56, 59, 67, 0.95);
   /* backdrop-filter: blur(10px);
@@ -386,7 +413,7 @@ div[class*="modalDialog"] {
   border-top: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 0 0 0.25rem 0.25rem;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.75);
-  padding: .5rem;
+  padding: 0.5rem;
   margin: 0;
   z-index: 1050;
   list-style: none;
@@ -396,12 +423,16 @@ div[class*="modalDialog"] {
 }
 
 .user-profile-dropdown .dropdown-item {
-
   display: block;
   margin: 0.2rem 0rem;
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 0.25rem;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    Roboto,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   font-size: 1rem; /* ~17px matching reference */
   font-weight: 500; /* Bold matching reference */
   line-height: 1.35;
@@ -414,7 +445,9 @@ div[class*="modalDialog"] {
   white-space: nowrap;
   cursor: pointer;
   box-sizing: border-box;
-  transition: background-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    background-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
 }
 
 .user-profile-dropdown .dropdown-item:hover,
@@ -510,7 +543,7 @@ div[class*="modalDialog"] {
   flex-direction: column;
   width: 100%;
   max-height: calc(100vh - 3.5rem);
-  background-color: rgba(60,60,60,.95);
+  background-color: rgba(60, 60, 60, 0.95);
   /* backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); */
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -528,7 +561,9 @@ div[class*="modalDialog"] {
   margin-bottom: 0.5rem;
   background: linear-gradient(40deg, #222638, #141724);
   border-radius: 0.25rem;
-  box-shadow: 0 0.5rem 1.125rem rgba(0, 0, 0, 0.5), 0 0.25rem 0.5rem rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 0.5rem 1.125rem rgba(0, 0, 0, 0.5),
+    0 0.25rem 0.5rem rgba(0, 0, 0, 0.35);
   padding: 0.875rem 1.25rem;
   border: none;
   display: flex;
@@ -709,7 +744,9 @@ div[class*="modalDialog"] {
   justify-content: center;
   font-size: 0.95rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
-  transition: transform 0.15s ease, background-color 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease;
   outline: none;
 }
 
@@ -840,7 +877,7 @@ div[class*="modalDialog"] {
   flex-direction: column;
   width: 100%;
   max-height: calc(100vh - 3.5rem);
-  background-color: rgba(60,60,60,.95) !important;
+  background-color: rgba(60, 60, 60, 0.95) !important;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 0.25rem;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.7);
@@ -856,7 +893,9 @@ div[class*="modalDialog"] {
   margin-bottom: 0.5rem;
   background: linear-gradient(40deg, #222638, #141724);
   border-radius: 0.25rem;
-  box-shadow: 0 0.5rem 1.125rem rgba(0, 0, 0, 0.5), 0 0.25rem 0.5rem rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 0.5rem 1.125rem rgba(0, 0, 0, 0.5),
+    0 0.25rem 0.5rem rgba(0, 0, 0, 0.35);
   padding: 0.875rem 1.25rem;
   border: none;
   display: flex;
@@ -1070,7 +1109,7 @@ div[class*="modalDialog"] {
 #ModalContactParent .modal-dialog {
   position: relative;
   width: 100%;
-  max-width:31.4rem; /* ~856px matching reference screenshot */
+  max-width: 31.4rem; /* ~856px matching reference screenshot */
   margin: auto;
   pointer-events: auto;
   box-sizing: border-box;
@@ -1081,7 +1120,7 @@ div[class*="modalDialog"] {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: rgba(60,60,60,.95) !important;
+  background-color: rgba(60, 60, 60, 0.95) !important;
   /* backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); */
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1098,7 +1137,9 @@ div[class*="modalDialog"] {
   margin-bottom: 0.5rem;
   background: linear-gradient(40deg, #222638, #141724);
   border-radius: 0.25rem;
-  box-shadow: 0 0.5rem 1.125rem rgba(0, 0, 0, 0.5), 0 0.25rem 0.5rem rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 0.5rem 1.125rem rgba(0, 0, 0, 0.5),
+    0 0.25rem 0.5rem rgba(0, 0, 0, 0.35);
   padding: 0.875rem 1.25rem;
   border: none;
   display: flex;
@@ -1139,9 +1180,14 @@ div[class*="modalDialog"] {
   position: relative;
   flex: 1 1 auto;
   /* padding: 2.75rem 3.5rem 1.75rem; */
-  padding: 1.6rem!important;
+  padding: 1.6rem !important;
   color: #ffffff;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    Roboto,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   text-align: center;
   box-sizing: border-box;
 }
@@ -1247,7 +1293,9 @@ div[class*="modalDialog"] {
   margin-bottom: 0.5rem;
   background: linear-gradient(40deg, #222638, #141724);
   border-radius: 0.25rem;
-  box-shadow: 0 0.5rem 1.125rem rgba(0, 0, 0, 0.5), 0 0.25rem 0.5rem rgba(0, 0, 0, 0.35);
+  box-shadow:
+    0 0.5rem 1.125rem rgba(0, 0, 0, 0.5),
+    0 0.25rem 0.5rem rgba(0, 0, 0, 0.35);
   padding: 0.875rem 1.25rem;
   border: none;
   display: flex;
@@ -1322,7 +1370,9 @@ div[class*="modalDialog"] {
   font-size: 1.2rem;
   cursor: pointer;
   box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.35);
-  transition: background-color 0.2s ease, transform 0.15s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease;
 }
 
 #ModalContactSupport .support-attach-circle:hover {
@@ -1492,7 +1542,9 @@ div[class*="modalDialog"] {
   cursor: pointer;
   padding: 0;
   opacity: 0.85;
-  transition: opacity 0.15s ease, transform 0.15s ease;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
   outline: none;
   display: flex;
   align-items: center;
@@ -1521,8 +1573,3 @@ div[class*="modalDialog"] {
 .golazo-toast-wrapper .toast-withdrawal .toast-body {
   background-color: #f44236; /* Sampled rgb(244, 66, 54) */
 }
-
-
-
-
-
