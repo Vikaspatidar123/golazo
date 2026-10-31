@@ -37,7 +37,8 @@ export default function CategoryBar({
       {/* Top Action Buttons & Search */}
       <div id="games_actions" className={styles.gamesActions}>
         <div id="games_btn_group" className={styles.gamesBtnGroup}>
-          <button
+         <div>
+           <button
             type="button"
             id="cat_list_item_id_9998"
             className={`${styles.catListItem} ${styles.actionBtn} ${
@@ -56,8 +57,9 @@ export default function CategoryBar({
             }`}
             onClick={() => onSelectFilter("recent")}
           >
-            ⟳ Recent
+            ⟳ Recientes
           </button>
+         </div>
 
           {/* Search box */}
           <form

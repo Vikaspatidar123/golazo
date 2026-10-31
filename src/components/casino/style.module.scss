@@ -8,7 +8,13 @@
   background-position: top center;
   background-size: 100% auto;
   color: #ffffff;
-  font-family: 'metropolismedium', Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    "metropolismedium",
+    Roboto,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
   overflow: visible;
   overflow-x: clip;
   padding-top: 3.1875rem; /* Exactly matches 3.1875rem fixed navbar with 0 gap */
@@ -133,7 +139,7 @@
   top: 3.1875rem; /* Locked directly beneath the 3.1875rem fixed navbar with 0 gap */
   background-color: #2a2f34;
   border-top: 1px solid #444a54;
-  border-bottom: 1px solid #444a54;
+  border-bottom: 1px solid #666;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.45);
   margin: 0;
   padding: 0;
@@ -142,9 +148,9 @@
 }
 
 .gamesActions {
-  padding: 4px 8px;
+  // padding: 4px 8px;
   background-color: #2a2f34;
-  border-bottom: 1px solid #3b4249;
+  border-bottom: 1px solid #666;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,19 +158,23 @@
 
 .gamesBtnGroup {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 4px;
   margin: 0 auto;
+  @media (max-width: 768px) {
+    flex-direction: row;
+  }
 }
 
 .actionBtn {
   padding: 6px 12px;
   font-size: 12px;
-  font-weight: 500;
+  // font-weight: 500;
   color: #dddddd;
-  background-image: linear-gradient(#333333, #111111);
-  border: 1px solid #444444;
+  background-image: linear-gradient(#333, #111);
+  // border: 1px solid #444444;
   border-radius: 6px;
   cursor: pointer;
   white-space: nowrap;
@@ -236,16 +246,16 @@
 /* Inside category scrollable list */
 .catListInsideWrapper {
   position: relative;
-  background-color: #2a2f34;
+  // background-color: #2a2f34;
   width: 100%;
 }
 
 .catListInside {
-  padding: 3px 6px 1px 6px;
+  // padding: 0px 6px 1px 6px;
   text-align: center;
   overflow: hidden;
   white-space: normal;
-  max-height: 38px;
+  max-height: 37px;
   transition: max-height 0.35s ease-in-out;
   scrollbar-width: none;
 
@@ -267,23 +277,25 @@
 .catListItem {
   padding: 6px 10px;
   font-size: 12px;
-  font-weight: 500;
+  // font-weight: 500;
   color: #dddddd;
-  background-image: linear-gradient(#333333, #111111);
-  border: 1px solid #444444;
+  background-image: linear-gradient(#333, #111);
+  // border: 1px solid #444444;
   border-radius: 6px;
   margin: 2px 2px;
   display: inline-block;
   cursor: pointer;
   user-select: none;
   text-align: center;
-  min-width: 76px;
+  // min-width: 76px;
   max-width: 95px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   vertical-align: middle;
   transition: all 0.2s ease;
+  font-family: Roboto;
+  min-height: 34px;
 
   &:hover {
     background-image: none;
@@ -294,8 +306,12 @@
   &.active {
     color: #ff7777 !important;
     background-image: linear-gradient(#333333, #111111) !important;
-    border: 1px solid #ff7777 !important;
+    // border: 1px solid #ff7777 !important;
     box-shadow: none !important;
+  }
+  @media (max-width: 768px) {
+      padding: 6px 5px;
+        margin: 1px 1px;
   }
 }
 
@@ -326,7 +342,7 @@
   text-align: center;
   cursor: pointer;
   line-height: 1;
-  height: 16px;
+  // height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -360,7 +376,7 @@
   width: 100%;
   max-width: 100%;
   margin: 0;
-  padding: 10px 12px 60px 12px;
+  padding: 4px;
   min-height: 60vh;
   box-sizing: border-box;
 }
@@ -368,33 +384,47 @@
 .gamesGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 8px 5px;
 
   @media (min-width: 640px) {
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    // gap: 10px;
   }
 
   @media (min-width: 992px) {
     grid-template-columns: repeat(6, 1fr);
-    gap: 10px 12px;
+    // gap: 10px 12px;
   }
 }
 
 /* Game Item Card */
 .gameItem {
   position: relative;
-  border-radius: 12px;
+  border-radius: 0px;
   overflow: hidden;
   background-color: #141622;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
   display: flex;
   flex-direction: column;
+}
 
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* Approx 1.39:1 aspect ratio matching banners in Image 1 */
+  overflow: hidden;
+  background-color: #12141c;
+  border-radius: 5px;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.15);
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6);
 
     .gameImage {
@@ -407,15 +437,6 @@
   }
 }
 
-.imageWrapper {
-  position: relative;
-  width: 100%;
-  padding-top: 72%; /* Approx 1.39:1 aspect ratio matching banners in Image 1 */
-  overflow: hidden;
-  background-color: #12141c;
-  border-radius: 12px;
-}
-
 .gameImage {
   position: absolute;
   top: 0;
@@ -423,7 +444,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 5px;
   transition: opacity 0.25s ease;
 }
 
