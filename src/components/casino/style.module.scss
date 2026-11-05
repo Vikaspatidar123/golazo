@@ -145,6 +145,7 @@
   padding: 0;
   box-sizing: border-box;
   overflow: visible;
+  font-family: "Roboto Condensed", Roboto, sans-serif;
 }
 
 .gamesActions {
@@ -170,7 +171,7 @@
 
 .actionBtn {
   padding: 6px 12px;
-  font-size: 12px;
+  font-size: 13px;
   // font-weight: 500;
   color: #dddddd;
   background-image: linear-gradient(#333, #111);
@@ -274,9 +275,17 @@
   }
 }
 
+.catListInside .catListItem {
+  width: 74px;
+  box-sizing: border-box;
+  font-size: 12px;
+  position: relative;
+  top: 1px;
+}
+
 .catListItem {
   padding: 6px 10px;
-  font-size: 12px;
+  font-size: 13px;
   // font-weight: 500;
   color: #dddddd;
   background-image: linear-gradient(#333, #111);
@@ -294,7 +303,7 @@
   text-overflow: ellipsis;
   vertical-align: middle;
   transition: all 0.2s ease;
-  font-family: Roboto;
+  font-family: "Roboto Condensed", Roboto, sans-serif;
   min-height: 34px;
 
   &:hover {
@@ -376,7 +385,7 @@
   width: 100%;
   max-width: 100%;
   margin: 0;
-  padding: 4px;
+  padding: 2px 3px 4px;
   min-height: 60vh;
   box-sizing: border-box;
 }
@@ -384,7 +393,7 @@
 .gamesGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px 5px;
+  gap: 7px 6px;
 
   @media (min-width: 640px) {
     grid-template-columns: repeat(4, 1fr);

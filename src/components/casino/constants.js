@@ -1,9 +1,9 @@
 export const CDN_BASE_URL = "https://cdn.golazo.club/";
 
 export const CASINO_PROVIDERS = [
-  { id: "505", name: "RedRake", path: "rrg" },
-  { id: "501", name: "Pragmatic", path: "pragmatic" },
   { id: "513", name: "Ruby Play", path: "ruby" },
+  { id: "501", name: "Pragmatic", path: "pragmatic" },
+  { id: "505", name: "RedRake", path: "rrg" },
   { id: "511", name: "Spinomenal", path: "spinomenal" },
   { id: "512", name: "Mancala", path: "mancala" },
   { id: "514", name: "DiceLab", path: "playnetic" },

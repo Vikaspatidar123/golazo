@@ -126,7 +126,7 @@
   background-position: center;
   background-size: 100% 100%;
   border-radius: 0;
-  margin: 0 0 6px 0;
+  margin: 0 0 8px 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -141,19 +141,27 @@
   padding: 0 3px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 4px;
+  gap: 7px 6px;
   box-sizing: border-box;
 
   @media (max-width: 991.98px) {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 4px;
-    padding: 0 2px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 7px 6px;
+    padding: 0 3px;
+
+    .imageWrapper {
+      padding-top: 82%;
+    }
   }
 
   @media (max-width: 575.98px) {
     grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
-    padding: 0 2px;
+    gap: 7px 6px;
+    padding: 0 3px;
+
+    .imageWrapper {
+      padding-top: 80.65%;
+    }
   }
 }
 

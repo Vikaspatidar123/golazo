@@ -46,7 +46,7 @@ export default function CategoryBar({
             }`}
             onClick={() => onSelectFilter("favorites")}
           >
-            ❤ Favorites
+            ❤ Favoritos
           </button>
 
           <button
@@ -74,7 +74,8 @@ export default function CategoryBar({
               type="text"
               id="search-text"
               className={styles.inputSearch}
-              placeholder="Buscar jogo..."
+              aria-label="Buscar jogo"
+              placeholder=""
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
             />

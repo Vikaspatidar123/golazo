@@ -18,24 +18,18 @@ import LoginHistoryModal from "@/components/home/components/Modals/LoginHistoryM
 import SportsRulesModal from "@/components/home/components/Modals/SportsRulesModal";
 
 const CRAZZY_WIN_GAMES = [
-  { pagecode: "vivo-piggyvegas", name: "Piggy Vegas", imgname: "/vivo-piggyvegas.jpg", system: "505" },
-  { pagecode: "vivo-lobstersplash2", name: "Lobster Splash 2", imgname: "/vivo-lobstersplash2.jpg", system: "505" },
-  { pagecode: "vivo-triplejewelofegypt", name: "Triple Jewel of Egypt", imgname: "/vivo-triplejewelofegypt.jpg", system: "505" },
-  { pagecode: "vivo-megacoins2", name: "Mega Coins 2", imgname: "/vivo-megacoins2.jpg", system: "505" },
-  { pagecode: "vivo-super70stars", name: "Super 70 Stars", imgname: "/vivo-super70stars.jpg", system: "505" },
-  { pagecode: "vivo-supercoins", name: "Super coins", imgname: "/vivo-supercoins.jpg", system: "505" },
-  { pagecode: "vivo-dragons3rakeitin", name: "3 Dragons Rake it in", imgname: "/vivo-dragons3rakeitin.jpg", system: "505" },
-  { pagecode: "vivo-triplefulushou", name: "Triple Fu Lu Shou", imgname: "/vivo-triplefulushou.jpg", system: "505" },
-  { pagecode: "vivo-triplevalentine", name: "Triple Valentine", imgname: "/vivo-triplevalentine.jpg", system: "505" },
-  { pagecode: "vivo-egypt", name: "Mysteries Of Egypt", imgname: "/vivo-egypt.jpg", system: "505" },
-  { pagecode: "vivo-guardianofra", name: "Guardian Of Ra", imgname: "/rrg-vivo-guardianofra.jpg", system: "505" },
-  { pagecode: "vivo-tumbling-diamonds", name: "Queens And Diamonds", imgname: "/rrg-slot-tumbling-diamonds.jpg", system: "505" },
-  { pagecode: "vivo-cleopatra", name: "The Asp Of Cleopatra", imgname: "/rrg-slot-cleopatra.jpg", system: "505" },
-  { pagecode: "vivo-milliondracula", name: "Million Dracula", imgname: "/vivo-milliondracula.jpg", system: "505" },
-  { pagecode: "vivo-vivafiesta", name: "Viva Fiesta", imgname: "/vivo-vivafiesta.jpg", system: "505" },
-  { pagecode: "vivo-triplefiesta", name: "Triple Fiesta", imgname: "/vivo-triplefiesta.jpg", system: "505" },
-  { pagecode: "vivo-jokerfiesta", name: "Joker Fiesta", imgname: "/vivo-jokerfiesta.jpg", system: "505" },
-  { pagecode: "vivo-halloweenwins3", name: "Halloween Wins 3", imgname: "/vivo-halloweenwins3.jpg", system: "505" },
+  { pagecode: "kg_5595", name: "Triple Stash Inca", imgname: "/kg_5595.jpg", system: "513" },
+  { pagecode: "kg_5025", name: "Voltage Blitz Rapid Boost", imgname: "/kg_5025.jpg", system: "513" },
+  { pagecode: "kg_5598", name: "Triple Stash Stampede", imgname: "/kg_5598.jpg", system: "513" },
+  { pagecode: "rp_214", name: "J Mania Chili Champs", imgname: "/rp_214.jpg", system: "513" },
+  { pagecode: "kg_5010", name: "Silly Sweets Cascade Rush", imgname: "/kg_5010.jpg", system: "513" },
+  { pagecode: "rp_236", name: "J Mania 3 Loose Cannons", imgname: "/rp_236.jpg", system: "513" },
+  { pagecode: "rp_220", name: "Giga Match Gems Party", imgname: "/rp_220.jpg", system: "513" },
+  { pagecode: "rp_234", name: "Plum Wild!", imgname: "/rp_234.jpg", system: "513" },
+  { pagecode: "rp_216", name: "Bufón Fortuna Deluxe", imgname: "/rp_216.jpg", system: "513" },
+  { pagecode: "kg_5039", name: "Voltage Blitz Stars 'n' Stripes", imgname: "/kg_5039.jpg", system: "513" },
+  { pagecode: "rp_228", name: "J Mania Goal Nations", imgname: "/rp_228.jpg", system: "513" },
+  { pagecode: "kg_5027", name: "Voltage Blitz Heat Rush", imgname: "/kg_5027.jpg", system: "513" },
 ];
 
 export default function CrazzyWinView() {
@@ -215,7 +209,7 @@ export default function CrazzyWinView() {
           <div id="banner_container" className={styles.bannerContainer}></div>
         )}
 
-        {/* 18 CrazZy Win Slots Grid */}
+        {/* Featured CrazZy Win slots */}
         {!activeGame && (
           <div id="games_container" className={styles.gamesContainer}>
             {CRAZZY_WIN_GAMES.map((game) => (
@@ -229,7 +223,7 @@ export default function CrazzyWinView() {
               >
                 <div className={styles.imageWrapper}>
                   <img
-                    src={`https://cdn.golazo.club/games_images/rrg${game.imgname}`}
+                    src={`https://cdn.golazo.club/games_images/ruby${game.imgname}`}
                     alt={game.name}
                     className={styles.gameImg}
                     loading="lazy"

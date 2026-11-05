@@ -23,7 +23,7 @@ export default function HomeView() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [activeModal, setActiveModal] = useState(null);
   const [toastData, setToastData] = useState({
-    visible: true,
+    visible: false,
     type: "deposit",
     title: "Notification",
     time: "9s",

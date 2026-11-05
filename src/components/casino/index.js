@@ -22,7 +22,6 @@ import CategoryBar from "./components/CategoryBar";
 import GameGrid from "./components/GameGrid";
 import {
   CDN_BASE_URL,
-  CASINO_PROVIDERS,
   getProviderPath,
   FALLBACK_REDRAKE_GAMES,
 } from "./constants";
@@ -44,7 +43,7 @@ export default function CasinoView() {
   });
 
   // Casino State
-  const [activeSystem, setActiveSystem] = useState("505"); // RedRake default
+  const [activeSystem, setActiveSystem] = useState("513"); // Ruby Play default
   const [activeFilter, setActiveFilter] = useState(null); // null | 'favorites' | 'recent'
   const [searchQuery, setSearchQuery] = useState("");
   const [rawGames, setRawGames] = useState([]);
