@@ -60,9 +60,8 @@ export default function Navbar({ onOpenModal, onOpenDrawer, onRefreshBalance }) 
           <li>
             <Link
               href="/"
-              className={`${styles.navLink} ${
-                router.pathname === "/" ? styles.active : ""
-              }`}
+              className={`${styles.navLink} ${router.pathname === "/" ? styles.active : ""
+                }`}
             >
               Inicio
             </Link>
@@ -70,9 +69,8 @@ export default function Navbar({ onOpenModal, onOpenDrawer, onRefreshBalance }) 
           <li>
             <Link
               href="/casino"
-              className={`${styles.navLink} ${
-                router.pathname.startsWith("/casino") ? styles.active : ""
-              }`}
+              className={`${styles.navLink} ${router.pathname.startsWith("/casino") ? styles.active : ""
+                }`}
             >
               Slots
             </Link>
@@ -80,9 +78,8 @@ export default function Navbar({ onOpenModal, onOpenDrawer, onRefreshBalance }) 
           <li>
             <Link
               href="/livecasino"
-              className={`${styles.navLink} ${
-                router.pathname.startsWith("/livecasino") ? styles.active : ""
-              }`}
+              className={`${styles.navLink} ${router.pathname.startsWith("/livecasino") ? styles.active : ""
+                }`}
             >
               Casino Vivo
             </Link>
@@ -90,9 +87,8 @@ export default function Navbar({ onOpenModal, onOpenDrawer, onRefreshBalance }) 
           <li>
             <Link
               href="/crazzy_win"
-              className={`${styles.navLink} ${
-                router.pathname.startsWith("/crazzy_win") ? styles.active : ""
-              }`}
+              className={`${styles.navLink} ${router.pathname.startsWith("/crazzy_win") ? styles.active : ""
+                }`}
             >
               CrazZy Win!
             </Link>
@@ -108,9 +104,8 @@ export default function Navbar({ onOpenModal, onOpenDrawer, onRefreshBalance }) 
           title="Actualizar saldo"
         >
           <i
-            className={`fas fa-sync-alt ${styles.syncIcon} ${
-              isRefreshing ? styles.spinning : ""
-            }`}
+            className={`fas fa-sync-alt ${styles.syncIcon} ${isRefreshing ? styles.spinning : ""
+              }`}
           ></i>
           <span className={styles.balanceAmount}>{balance}</span>
         </div>
@@ -166,7 +161,10 @@ export default function Navbar({ onOpenModal, onOpenDrawer, onRefreshBalance }) 
         </div>
 
         {/* User Profile Dropdown */}
-        <div className={styles.dropdownContainer} ref={userRef}>
+        <div
+          className={`${styles.dropdownContainer} ${styles.userDropdownContainer}`}
+          ref={userRef}
+        >
           <button
             type="button"
             className={styles.userProfileBtn}
